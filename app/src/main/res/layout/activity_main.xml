@@ -10,8 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Potter Pals"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
-        android:textColor="@mipmap/ic_launcher_round"
         android:gravity="center"
         android:textSize="30dp"
         />
@@ -47,7 +45,6 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:text='"Homenum Revelio"'
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
             android:textColor="@color/golden"
             android:textSize="24dp"
             android:textStyle="bold" />
@@ -111,7 +108,6 @@
             android:layout_below="@+id/login"
             android:layout_marginTop="29dp"
             android:text="Explore other fun stuff here..."
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
             android:textColor="@color/garnet"
             android:textSize="20dp" />
 
