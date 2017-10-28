@@ -7,13 +7,13 @@
         android:id="@+id/name_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="39dp"
         android:text="Name"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/check_agree"
-        android:layout_toStartOf="@+id/check_agree"
-        android:layout_marginRight="15dp"
-        android:layout_marginEnd="15dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="33dp"
+        android:layout_marginStart="33dp" />
 
     <TextView
         android:id="@+id/email_textView"
@@ -37,32 +37,39 @@
 
     <Button
         android:id="@+id/button_reset"
+        style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/gender_textView"
+        android:background="@color/white"
+        android:backgroundTint="@color/garnet"
+        android:text="Reset"
+        android:textColor="@color/golden"
         android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/gender_textView"
         android:layout_alignStart="@+id/gender_textView"
-        android:text="Reset" />
+        android:layout_marginBottom="19dp" />
 
     <Button
         android:id="@+id/button_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginEnd="37dp"
-        android:layout_marginRight="37dp"
-        android:text="Register" />
+        android:background="@color/white"
+        android:backgroundTint="@color/garnet"
+        android:text="Register"
+        android:textColor="@color/golden"
+        android:layout_below="@+id/check_agree"
+        android:layout_toRightOf="@+id/check_agree"
+        android:layout_toEndOf="@+id/check_agree" />
 
     <CheckBox
         android:id="@+id/check_agree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button_submit"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="17dp"
-        android:text="Agree to Terms" />
+        android:layout_marginBottom="60dp"
+        android:text="Agree to Terms"
+        android:layout_above="@+id/button_reset"
+        android:layout_toRightOf="@+id/button_reset"
+        android:layout_toEndOf="@+id/button_reset" />
 
     <EditText
         android:id="@+id/edit_name"
