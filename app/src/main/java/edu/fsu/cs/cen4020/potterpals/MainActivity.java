@@ -1,5 +1,6 @@
 package edu.fsu.cs.cen4020.potterpals;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -9,14 +10,21 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.Toast;
 import android.widget.TextView;
+import static edu.fsu.cs.cen4020.potterpals.R.array.book_nums;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    public ListView bookList;
+    ArrayAdapter<CharSequence> adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +40,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        RadioButton readSumm = (RadioButton)findViewById(R.id.radioFemale);
+        readSumm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, BookList.class);
+                startActivity(intent);
+
+
+            }
+        });
 
 
 

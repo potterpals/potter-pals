@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">PotterPals</string>
+    <string-array name="book_nums">
+        <item>Harry Potter and the Sorcerers Stone</item>
+        <item>Harry Potter and the Chamber of Secrets</item>
+        <item>Harry Potter and the Prisoner of Azkaban</item>
+        <item>Harry Potter and the Goblet of Fire</item>
+        <item>Harry Potter and the Order of the Phoenix</item>
+        <item>Harry Potter and the Half-Blood Prince</item>
+        <item>Harry Potter and the Deathly Hallows</item>
+    </string-array>
 </resources>

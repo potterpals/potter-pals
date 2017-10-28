@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.fsu.cs.cen4020.potterpals">
-
+    <permission android:name="edu.fsu.cs.cen4020.potterpals.permission.READ_PERMISSION" />
+    <permission android:name="edu.fsu.cs.cen4020.potterpals.permission.WRITE_PERMISSION" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,8 +19,17 @@
         </activity>
 
         <activity android:name=".RegisterUser">
+        </activity>
+
+        <activity android:name=".BookList">
 
         </activity>
+        <provider
+            android:name=".MyContentProvider"
+            android:authorities="edu.fsu.cs.cen4020.potterpals"
+            android:exported="true"
+            android:readPermission="edu.fsu.cs.cen4020.potterpals.permission.READ_PERMISSION"
+            android:writePermission="edu.fsu.cs.cen4020.potterpals.permission.WRITE_PERMISSION" />
 
 
     </application>
