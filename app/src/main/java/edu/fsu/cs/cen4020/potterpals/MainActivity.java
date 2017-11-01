@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         RadioButton readSumm = (RadioButton)findViewById(R.id.radioFemale);
         RadioButton takeQuiz = (RadioButton) findViewById(R.id.quiz);
 
+
         readSumm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
 
 
 

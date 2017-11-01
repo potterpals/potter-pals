@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 /**
@@ -12,11 +14,28 @@ import android.widget.Toast;
 
 public class RegisterUser extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
+        Button reset = (Button) findViewById(R.id.button_reset);
+        final EditText name = (EditText)  findViewById(R.id.edit_name);
+        final EditText email = (EditText) findViewById(R.id.edit_email);
+        final RadioButton male = (RadioButton) findViewById(R.id.radio_male);
+        final RadioButton female = (RadioButton) findViewById(R.id.radio_female);
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                email.setText("");
+                name.setText("");
+                male.setChecked(false);
+                female.setChecked(false);
+                email.setText("");
 
+
+            }
+        });
 
 
 
