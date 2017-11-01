@@ -34,12 +34,17 @@ public class BookSummary extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.book_summ);
+
+        //TEXTVIEW TO DISPLAY BOOK SUMMARY
         TextView bookSumm = (TextView) findViewById(R.id.textView);
 
+        //GETTING THE INTENT AND GETTING THE STRING FROM IT
         Bundle bundle = getIntent().getExtras();
         if (bundle!=null)
         {
+            //SAVING THE STRING IN THE BUNDLE INTO A STRING AND COMAPRING THAT TO DIFFERENT BOOK TITLES
             String book = bundle.getString(BOOK);
+
             //COMPARE THE BOOK STRING TO SEE WHICH BOOK IT IS AND DEPENDING ON WHICH BOOK IT IS
             //THE TEXTVIEW WILL BE SET TO THE APPROPIATE SUMMARY.
 

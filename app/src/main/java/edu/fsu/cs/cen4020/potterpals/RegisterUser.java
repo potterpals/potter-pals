@@ -24,6 +24,8 @@ public class RegisterUser extends AppCompatActivity {
         final EditText email = (EditText) findViewById(R.id.edit_email);
         final RadioButton male = (RadioButton) findViewById(R.id.radio_male);
         final RadioButton female = (RadioButton) findViewById(R.id.radio_female);
+
+        //IF USER WANTS TO DELETE EVERYTHING THEY INPUTTED THAT THEY TYPED OR SELECTED THEN THIS BUTTON DOES IT
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
