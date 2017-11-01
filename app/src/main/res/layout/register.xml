@@ -3,6 +3,19 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/name_textView"
+        android:layout_alignBottom="@+id/name_textView"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        android:layout_toEndOf="@+id/gender_textView"
+        android:layout_toRightOf="@+id/gender_textView"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
     <TextView
         android:id="@+id/name_textView"
         android:layout_width="wrap_content"
@@ -31,12 +44,11 @@
         android:id="@+id/gender_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/email_textView"
-        android:layout_alignStart="@+id/email_textView"
-        android:layout_below="@+id/edit_email"
-        android:layout_marginTop="68dp"
         android:text="Gender"
-        android:textColor="@color/golden" />
+        android:textColor="@color/golden"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/email_textView"
+        android:layout_alignStart="@+id/email_textView" />
 
     <Button
         android:id="@+id/button_reset"
@@ -125,10 +137,6 @@
             android:textColor="@color/golden" />
 
     </RadioGroup>
-
-
-
-
 
 
 </RelativeLayout>

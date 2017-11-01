@@ -8,7 +8,8 @@
         android:id="@+id/list_url"
         android:layout_width="match_parent"
         android:layout_height="220dp"
-        android:textColor="#000000"
+        android:textColor="@color/garnet"
         android:layout_weight="0.65" />
+
 
 </LinearLayout>

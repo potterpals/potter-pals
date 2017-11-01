@@ -21,7 +21,7 @@ import static edu.fsu.cs.cen4020.potterpals.R.array.book_nums;
 
 public class BookList extends AppCompatActivity {
     public ListView bookList;
-    ArrayAdapter<CharSequence> adapter;
+    //ArrayAdapter<CharSequence> adapter;
     final Context context = this;
     public static String BOOK = "BOOK";
 
@@ -30,7 +30,9 @@ public class BookList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.books);
         bookList = (ListView) findViewById(R.id.list_url);
-        adapter = ArrayAdapter.createFromResource(getApplicationContext(), book_nums, android.R.layout.simple_list_item_1);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getBaseContext(), book_nums, android.R.layout.simple_list_item_1);
+
+
         bookList.setAdapter(adapter);
         bookList.setClickable(true);
         bookList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
