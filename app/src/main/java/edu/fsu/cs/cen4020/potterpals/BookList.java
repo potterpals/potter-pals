@@ -1,13 +1,17 @@
 package edu.fsu.cs.cen4020.potterpals;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RadioButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import static edu.fsu.cs.cen4020.potterpals.R.array.book_nums;
 
@@ -18,6 +22,8 @@ import static edu.fsu.cs.cen4020.potterpals.R.array.book_nums;
 public class BookList extends AppCompatActivity {
     public ListView bookList;
     ArrayAdapter<CharSequence> adapter;
+    final Context context = this;
+    public static String BOOK = "BOOK";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +33,17 @@ public class BookList extends AppCompatActivity {
         adapter = ArrayAdapter.createFromResource(getApplicationContext(), book_nums, android.R.layout.simple_list_item_1);
         bookList.setAdapter(adapter);
         bookList.setClickable(true);
+        bookList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String book = ((TextView) view).getText().toString();
+                Intent intent = new Intent(context,BookSummary.class);
+                Bundle bundle = new Bundle();
+                bundle.putString(BOOK,book);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
 
 
     };

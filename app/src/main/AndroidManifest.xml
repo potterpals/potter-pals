@@ -22,7 +22,10 @@
         </activity>
 
         <activity android:name=".BookList">
-
+        </activity>
+        <activity android:name=".BookSummary">
+        </activity>
+        <activity android:name=".HouseQuiz">
         </activity>
         <provider
             android:name=".MyContentProvider"

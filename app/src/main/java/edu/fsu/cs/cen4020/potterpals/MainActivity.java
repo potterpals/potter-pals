@@ -16,9 +16,6 @@ import android.widget.TextView;
 import static edu.fsu.cs.cen4020.potterpals.R.array.book_nums;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         RadioButton readSumm = (RadioButton)findViewById(R.id.radioFemale);
+        RadioButton takeQuiz = (RadioButton) findViewById(R.id.quiz);
+
         readSumm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,6 +49,18 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        takeQuiz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, HouseQuiz.class);
+                startActivity(intent);
+
+
+            }
+        });
+
+
 
 
 
