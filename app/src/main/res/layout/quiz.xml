@@ -3,4 +3,12 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HOUSE QUIZ"
+        android:textAlignment="center"
+        android:textColor="@color/garnet"
+        android:textSize="20sp" />
 </LinearLayout>

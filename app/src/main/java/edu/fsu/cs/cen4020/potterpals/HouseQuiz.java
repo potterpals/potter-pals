@@ -1,6 +1,7 @@
 package edu.fsu.cs.cen4020.potterpals;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 
 
 /**
@@ -13,7 +14,7 @@ public class HouseQuiz extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.quiz);
-
+        TextView title = (TextView) findViewById(R.id.title);
 
 
 

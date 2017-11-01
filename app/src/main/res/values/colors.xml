@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#FF4081</color>
     <color name="golden">#d4af37</color>
-    <color name="gold">#FFDF00</color>
+    <color name="gold">#ffdf00</color>
     <color name="garnet">#990012</color>
     <color name="white">#ffffff</color>
 </resources>

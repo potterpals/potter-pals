@@ -7,33 +7,36 @@
         android:id="@+id/name_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="39dp"
-        android:text="Name"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginLeft="33dp"
-        android:layout_marginStart="33dp" />
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="39dp"
+        android:text="Name"
+        android:textColor="@color/golden" />
 
     <TextView
         android:id="@+id/email_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="37dp"
+        android:layout_marginTop="39dp"
         android:text="Email"
+        android:textColor="@color/golden"
         android:layout_below="@+id/edit_name"
-        android:layout_alignLeft="@+id/name_textView"
-        android:layout_alignStart="@+id/name_textView" />
+        android:layout_alignRight="@+id/name_textView"
+        android:layout_alignEnd="@+id/name_textView" />
 
     <TextView
         android:id="@+id/gender_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gender"
-        android:layout_marginTop="68dp"
-        android:layout_below="@+id/edit_email"
         android:layout_alignLeft="@+id/email_textView"
-        android:layout_alignStart="@+id/email_textView" />
+        android:layout_alignStart="@+id/email_textView"
+        android:layout_below="@+id/edit_email"
+        android:layout_marginTop="68dp"
+        android:text="Gender"
+        android:textColor="@color/golden" />
 
     <Button
         android:id="@+id/button_reset"
@@ -65,33 +68,36 @@
         android:id="@+id/check_agree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
-        android:text="Agree to Terms"
         android:layout_above="@+id/button_reset"
+        android:layout_marginBottom="60dp"
+        android:layout_toEndOf="@+id/button_reset"
         android:layout_toRightOf="@+id/button_reset"
-        android:layout_toEndOf="@+id/button_reset" />
+        android:text="Agree to Terms"
+        android:textColor="@color/golden" />
 
     <EditText
         android:id="@+id/edit_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
         android:layout_alignBaseline="@+id/name_textView"
         android:layout_alignBottom="@+id/name_textView"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:ems="10"
-        android:inputType="textPersonName" />
+        android:layout_toRightOf="@+id/gender_textView"
+        android:layout_toEndOf="@+id/gender_textView"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp" />
 
     <EditText
         android:id="@+id/edit_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
         android:layout_alignBaseline="@+id/email_textView"
         android:layout_alignBottom="@+id/email_textView"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:ems="10"
-        android:inputType="textEmailAddress" />
+        android:layout_alignLeft="@+id/edit_name"
+        android:layout_alignStart="@+id/edit_name" />
 
     <RadioGroup
         android:id="@+id/radio_gender"
@@ -108,13 +114,15 @@
             android:id="@+id/radio_male"
             android:layout_width="114dp"
             android:layout_height="match_parent"
-            android:text="Male" />
+            android:text="Male"
+            android:textColor="@color/golden" />
 
         <RadioButton
             android:id="@+id/radio_female"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Female" />
+            android:text="Female"
+            android:textColor="@color/golden" />
 
     </RadioGroup>
 

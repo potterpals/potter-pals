@@ -28,7 +28,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button signUp = (Button) findViewById(R.id.login);
+        Button signUp = (Button) findViewById(R.id.signup);
+        Button login = (Button) findViewById(R.id.login);
+
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,6 +39,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, LoginUser.class);
+                startActivity(intent);
+            }
+        });
         RadioButton readSumm = (RadioButton)findViewById(R.id.radioFemale);
         RadioButton takeQuiz = (RadioButton) findViewById(R.id.quiz);
 
