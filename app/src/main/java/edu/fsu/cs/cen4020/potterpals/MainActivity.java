@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         Button signUp = (Button) findViewById(R.id.signup);
         Button login = (Button) findViewById(R.id.login);
 
+        //SIGNUP BUTTON STARTS ACTIVITY WITH SIGN IN FORM
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //LOGIN BUTTON STARTS INTENT WITH ACTIVITY FOR LOGIN
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         RadioButton readSumm = (RadioButton)findViewById(R.id.radioFemale);
         RadioButton takeQuiz = (RadioButton) findViewById(R.id.quiz);
 
-
+        //CLICKING ON THIS SHOWS LIST OF BOOKS
         readSumm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //LETS USER TAKE QUIZ AFTER SELECTING THIS
         takeQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

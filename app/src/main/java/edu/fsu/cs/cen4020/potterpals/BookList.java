@@ -2,6 +2,7 @@ package edu.fsu.cs.cen4020.potterpals;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -30,8 +31,8 @@ public class BookList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.books);
         bookList = (ListView) findViewById(R.id.list_url);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getBaseContext(), book_nums, android.R.layout.simple_list_item_1);
 
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getBaseContext(), book_nums, android.R.layout.simple_list_item_1);
 
         bookList.setAdapter(adapter);
         bookList.setClickable(true);
