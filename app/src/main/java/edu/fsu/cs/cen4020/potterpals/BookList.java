@@ -32,10 +32,14 @@ public class BookList extends AppCompatActivity {
         setContentView(R.layout.books);
         bookList = (ListView) findViewById(R.id.list_url);
 
+        //LOAD ADAPTER WITH BOOKS
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getBaseContext(), book_nums, android.R.layout.simple_list_item_1);
 
         bookList.setAdapter(adapter);
         bookList.setClickable(true);
+
+        //ONCE USER CLICKS ON A BOOK TITLE,BOOK TITLE IS BUNDLED UP AND SENT TO THE BOOKSUMMARY FILE WHICH DISPLAYS SUMMARY OF WHATEVER
+        //BOOK TITLE IS RECEIVED FROM BUNDLE
         bookList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
