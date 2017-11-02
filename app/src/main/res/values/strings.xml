@@ -9,4 +9,12 @@
         <item>Harry Potter and the Half-Blood Prince</item>
         <item>Harry Potter and the Deathly Hallows</item>
     </string-array>
+
+    <string name="book1Summ">This is the summary of Book 1</string>
+    <string name="book2Summ">This is the summary of Book 2</string>
+    <string name="book3Summ">This is the summary of Book 3</string>
+    <string name="book4Summ">This is the summary of Book 4</string>
+    <string name="book5Summ">This is the summary of Book 5</string>
+    <string name="book6Summ">This is the summary of Book 6</string>
+    <string name="book7Summ">This is the summary of Book 7</string>
 </resources>

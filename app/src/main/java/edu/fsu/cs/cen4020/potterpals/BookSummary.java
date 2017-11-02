@@ -47,8 +47,21 @@ public class BookSummary extends AppCompatActivity
 
             //COMPARE THE BOOK STRING TO SEE WHICH BOOK IT IS AND DEPENDING ON WHICH BOOK IT IS
             //THE TEXTVIEW WILL BE SET TO THE APPROPIATE SUMMARY.
-
-
+            if (book.equals(book1)) {
+                bookSumm.setText(R.string.book1Summ);
+            }else if (book.equals(book2)) {
+                bookSumm.setText(R.string.book2Summ);
+            }else if (book.equals(book3)) {
+                bookSumm.setText(R.string.book3Summ);
+            }else if (book.equals(book4)) {
+                bookSumm.setText(R.string.book4Summ);
+            }else if (book.equals(book5)) {
+                bookSumm.setText(R.string.book5Summ);
+            }else if (book.equals(book6)) {
+                bookSumm.setText(R.string.book6Summ);
+            }else if (book.equals(book7)) {
+                bookSumm.setText(R.string.book7Summ);
+            }
         }
     };
 }
