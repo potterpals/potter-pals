@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         });
         RadioButton readSumm = (RadioButton)findViewById(R.id.radioFemale);
         RadioButton takeQuiz = (RadioButton) findViewById(R.id.quiz);
+        RadioButton invite = (RadioButton) findViewById(R.id.invite);
 
         //CLICKING ON THIS SHOWS LIST OF BOOKS
         readSumm.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +70,16 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, HouseQuiz.class);
                 startActivity(intent);
 
+
+            }
+        });
+
+        //LETS USER INVITE THEIR FRIENDS TO THE APP BY SENDING OUT EMAIL
+        invite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Invite.class);
+                startActivity(intent);
 
             }
         });

@@ -29,6 +29,8 @@
         </activity>
         <activity android:name=".LoginUser">
         </activity>
+        <activity android:name=".Invite">
+        </activity>
         <provider
             android:name=".MyContentProvider"
             android:authorities="edu.fsu.cs.cen4020.potterpals"
