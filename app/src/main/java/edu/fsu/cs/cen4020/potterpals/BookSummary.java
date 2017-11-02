@@ -37,6 +37,7 @@ public class BookSummary extends AppCompatActivity
 
         //TEXTVIEW TO DISPLAY BOOK SUMMARY
         TextView bookSumm = (TextView) findViewById(R.id.textView);
+        TextView random;
 
         //GETTING THE INTENT AND GETTING THE STRING FROM IT
         Bundle bundle = getIntent().getExtras();
