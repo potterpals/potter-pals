@@ -3,42 +3,40 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/name_textView"
-        android:layout_alignBottom="@+id/name_textView"
-        android:layout_toEndOf="@+id/gender_textView"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:layout_alignLeft="@+id/edit_name"
-        android:layout_alignStart="@+id/edit_name"
-        android:layout_toRightOf="@+id/gender_textView" />
-
     <TextView
         android:id="@+id/name_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
-        android:text="Name"
-        android:textColor="@color/golden"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="39dp"
-        android:layout_marginStart="39dp" />
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="33dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="39dp"
+        android:text="Name"
+        android:textColor="@color/golden" />
+
+    <EditText
+        android:id="@+id/edit_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Name"
+        android:layout_alignBaseline="@+id/name_textView"
+        android:layout_alignBottom="@+id/name_textView"
+        android:layout_alignRight="@+id/button_submit"
+        android:layout_alignEnd="@+id/button_submit" />
 
     <TextView
         android:id="@+id/email_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="37dp"
         android:text="Email"
         android:textColor="@color/golden"
-        android:layout_below="@+id/editText2"
-        android:layout_alignRight="@+id/name_textView"
-        android:layout_alignEnd="@+id/name_textView" />
+        android:layout_above="@+id/pass_input1"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" />
 
     <TextView
         android:id="@+id/gender_textView"
@@ -47,9 +45,9 @@
         android:text="Gender"
         android:textColor="@color/golden"
         android:layout_below="@+id/confirm_pass"
-        android:layout_alignLeft="@+id/email_textView"
-        android:layout_alignStart="@+id/email_textView"
-        android:layout_marginTop="58dp" />
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_marginTop="60dp" />
 
     <Button
         android:id="@+id/button_reset"
@@ -60,10 +58,10 @@
         android:backgroundTint="@color/garnet"
         android:text="Reset"
         android:textColor="@color/golden"
-        android:layout_marginBottom="19dp"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/textView2"
-        android:layout_toEndOf="@+id/textView2" />
+        android:layout_alignLeft="@+id/gender_textView"
+        android:layout_alignStart="@+id/gender_textView"
+        android:layout_marginBottom="19dp" />
 
     <Button
         android:id="@+id/button_submit"
@@ -73,35 +71,20 @@
         android:backgroundTint="@color/garnet"
         android:text="Register"
         android:textColor="@color/golden"
-        android:layout_marginRight="39dp"
-        android:layout_marginEnd="39dp"
-        android:layout_alignBaseline="@+id/button_reset"
-        android:layout_alignBottom="@+id/button_reset"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_below="@+id/check_agree"
+        android:layout_toRightOf="@+id/check_agree"
+        android:layout_toEndOf="@+id/check_agree" />
 
     <CheckBox
         android:id="@+id/check_agree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="58dp"
         android:text="Agree to Terms"
         android:textColor="@color/golden"
-        android:layout_below="@+id/radio_gender"
-        android:layout_toLeftOf="@+id/button_submit"
-        android:layout_toStartOf="@+id/button_submit"
-        android:layout_marginTop="47dp" />
-
-    <EditText
-        android:id="@+id/edit_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:layout_alignBaseline="@+id/editText2"
-        android:layout_alignBottom="@+id/editText2"
-        android:hint="Harry Potter"
-        android:layout_alignLeft="@+id/edit_email"
-        android:layout_alignStart="@+id/edit_email" />
+        android:layout_above="@+id/button_reset"
+        android:layout_toRightOf="@+id/button_reset"
+        android:layout_toEndOf="@+id/button_reset" />
 
     <EditText
         android:id="@+id/edit_email"
@@ -110,10 +93,10 @@
         android:ems="10"
         android:inputType="textEmailAddress"
         android:hint="hogwarts@potter.com"
-        android:layout_alignBaseline="@+id/email_textView"
-        android:layout_alignBottom="@+id/email_textView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_below="@+id/edit_name"
+        android:layout_alignLeft="@+id/edit_name"
+        android:layout_alignStart="@+id/edit_name"
+        android:layout_marginTop="26dp" />
 
     <RadioGroup
         android:id="@+id/radio_gender"
@@ -150,30 +133,33 @@
         android:textColor="@color/golden"
         android:layout_alignBaseline="@+id/pass_input1"
         android:layout_alignBottom="@+id/pass_input1"
-        android:layout_alignLeft="@+id/email_textView"
-        android:layout_alignStart="@+id/email_textView" />
+        android:layout_alignLeft="@+id/name_textView"
+        android:layout_alignStart="@+id/name_textView" />
 
     <TextView
         android:id="@+id/confirm_pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_below="@+id/pass_input1"
+        android:layout_marginTop="23dp"
         android:text="Confirm Password"
         android:textColor="@color/golden"
-        android:layout_below="@+id/pass_input1"
-        android:layout_alignLeft="@+id/gender_textView"
-        android:layout_alignStart="@+id/gender_textView" />
+        android:layout_toLeftOf="@+id/check_agree"
+        android:layout_toStartOf="@+id/check_agree" />
 
     <EditText
         android:id="@+id/pass_input1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="33dp"
         android:ems="10"
         android:inputType="textPassword"
         android:layout_below="@+id/edit_email"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignLeft="@+id/edit_email"
+        android:layout_alignStart="@+id/edit_email"
+        />
 
     <EditText
         android:id="@+id/pass_input2"
@@ -181,10 +167,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword"
-        android:layout_alignBaseline="@+id/confirm_pass"
-        android:layout_alignBottom="@+id/confirm_pass"
+        android:layout_alignTop="@+id/confirm_pass"
         android:layout_alignLeft="@+id/pass_input1"
         android:layout_alignStart="@+id/pass_input1" />
-
 
 </RelativeLayout>
