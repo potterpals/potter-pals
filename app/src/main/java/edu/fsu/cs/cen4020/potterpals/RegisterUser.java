@@ -14,21 +14,23 @@ import android.widget.RadioButton;
 
 public class RegisterUser extends AppCompatActivity {
 
-    final EditText password = (EditText)findViewById(R.id.pass_input1);
-    final EditText password2 = (EditText)findViewById(R.id.pass_input2);
-    final EditText name = (EditText)  findViewById(R.id.edit_name);
-    final EditText email = (EditText) findViewById(R.id.edit_email);
-    final RadioButton male = (RadioButton) findViewById(R.id.radio_male);
-    final RadioButton female = (RadioButton) findViewById(R.id.radio_female);
-    final CheckBox terms = (CheckBox) findViewById(R.id.check_agree);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        final EditText password = (EditText)findViewById(R.id.pass_input1);
+        final EditText password2 = (EditText)findViewById(R.id.pass_input2);
+        final EditText name = (EditText)  findViewById(R.id.edit_name);
+        final EditText email = (EditText) findViewById(R.id.edit_email);
+        final RadioButton male = (RadioButton) findViewById(R.id.radio_male);
+        final RadioButton female = (RadioButton) findViewById(R.id.radio_female);
+        final CheckBox terms = (CheckBox) findViewById(R.id.check_agree);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
         Button reset = (Button) findViewById(R.id.button_reset);
+
 
         //IF USER WANTS TO DELETE EVERYTHING THEY INPUTTED THAT THEY TYPED OR SELECTED THEN THIS BUTTON DOES IT
         reset.setOnClickListener(new View.OnClickListener() {
