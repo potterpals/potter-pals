@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -39,6 +40,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="55dp"
+            android:layout_height="50dp"
+            android:background="@android:color/background_light"
+            app:srcCompat="@drawable/bolt"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/welcomeText"
+            android:layout_alignBottom="@+id/welcomeText"
+            android:layout_toLeftOf="@+id/welcomeText" />
 
         <TextView
             android:id="@+id/welcomeText"
@@ -146,6 +158,16 @@
                 android:text="Invite your Friends!" />
 
         </RadioGroup>
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="55dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/login"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/welcomeText"
+            android:background="@android:color/background_light"
+            app:srcCompat="@drawable/bolt" />
 
     </RelativeLayout>
 
