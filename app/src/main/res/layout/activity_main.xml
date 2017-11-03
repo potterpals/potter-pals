@@ -3,13 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/linear">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Potter Pals"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
         android:gravity="center"
         android:textSize="30dp"
         />
@@ -144,9 +146,6 @@
                 android:text="Invite your Friends!" />
 
         </RadioGroup>
-
-
-
 
     </RelativeLayout>
 
