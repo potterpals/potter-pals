@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Name"
+        android:hint="Harry Potter"
         android:layout_alignBaseline="@+id/name_textView"
         android:layout_alignBottom="@+id/name_textView"
         android:layout_alignRight="@+id/button_submit"
@@ -34,7 +34,8 @@
         android:layout_height="wrap_content"
         android:text="Email"
         android:textColor="@color/golden"
-        android:layout_above="@+id/pass_input1"
+        android:layout_alignBaseline="@+id/edit_email"
+        android:layout_alignBottom="@+id/edit_email"
         android:layout_alignLeft="@+id/textView2"
         android:layout_alignStart="@+id/textView2" />
 
