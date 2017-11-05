@@ -3,6 +3,7 @@ package edu.fsu.cs.cen4020.potterpals;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -37,7 +38,8 @@ public class BookSummary extends AppCompatActivity
 
         //TEXTVIEW TO DISPLAY BOOK SUMMARY
         TextView bookSumm = (TextView) findViewById(R.id.textView);
-        TextView random;
+
+        bookSumm.setMovementMethod(new ScrollingMovementMethod());
 
         //GETTING THE INTENT AND GETTING THE STRING FROM IT
         Bundle bundle = getIntent().getExtras();
