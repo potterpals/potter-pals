@@ -1,12 +1,17 @@
 package edu.fsu.cs.cen4020.potterpals;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,7 +34,14 @@ public class BookSummary extends AppCompatActivity
     final static String book5= "Harry Potter and the Order of the Phoenix";
     final static String book6= "Harry Potter and the Half-Blood Prince";
     final static String book7= "Harry Potter and the Deathly Hallows";
-
+    LayoutInflater inflator;
+    TextView bookSumm;
+    EditText remind;
+    EditText edit_place;
+    AlertDialog alertDialog;
+    Button no;
+    Button yes;
+    Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +49,10 @@ public class BookSummary extends AppCompatActivity
         setContentView(R.layout.book_summ);
 
         //TEXTVIEW TO DISPLAY BOOK SUMMARY
-        TextView bookSumm = (TextView) findViewById(R.id.textView);
+        bookSumm = (TextView) findViewById(R.id.textView);
 
         bookSumm.setMovementMethod(new ScrollingMovementMethod());
-
+        bookSumm.setVisibility(View.INVISIBLE);
         //GETTING THE INTENT AND GETTING THE STRING FROM IT
         Bundle bundle = getIntent().getExtras();
         if (bundle!=null)
@@ -52,20 +64,54 @@ public class BookSummary extends AppCompatActivity
             //THE TEXTVIEW WILL BE SET TO THE APPROPIATE SUMMARY.
             //compare strings
             if (book.equals(book1)) {
+                showDialog();
                 bookSumm.setText(R.string.book1Summ);
             }else if (book.equals(book2)) {
+                showDialog();
                 bookSumm.setText(R.string.book2Summ);
             }else if (book.equals(book3)) {
+                showDialog();
                 bookSumm.setText(R.string.book3Summ);
             }else if (book.equals(book4)) {
+                showDialog();
                 bookSumm.setText(R.string.book4Summ);
             }else if (book.equals(book5)) {
+                showDialog();
                 bookSumm.setText(R.string.book5Summ);
             }else if (book.equals(book6)) {
+                showDialog();
                 bookSumm.setText(R.string.book6Summ);
             }else if (book.equals(book7)) {
+                showDialog();
                 bookSumm.setText(R.string.book7Summ);
             }
         }
     };
+    void showDialog()
+    {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(context);
+        inflator = getLayoutInflater();
+        View dialogView=inflator.inflate (R.layout.dialog,null);
+        dialog.setView(dialogView);
+        TextView text = dialogView.findViewById(R.id.text);
+        text.setText("Are you sure you want to read the book summary?");
+        no = dialogView.findViewById(R.id.button2);
+        yes = dialogView.findViewById(R.id.button);
+        yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bookSumm.setVisibility(View.VISIBLE);
+                alertDialog.dismiss();
+            }
+        });
+        no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        dialog.create();
+        alertDialog= dialog.show();
+
+    }
 }
