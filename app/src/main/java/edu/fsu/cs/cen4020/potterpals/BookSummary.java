@@ -108,6 +108,7 @@ public class BookSummary extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 finish();
+                Toast.makeText(context,"going back", Toast.LENGTH_LONG).show();
 
             }
         });
