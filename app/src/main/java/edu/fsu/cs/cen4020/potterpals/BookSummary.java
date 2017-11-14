@@ -36,8 +36,6 @@ public class BookSummary extends AppCompatActivity
     final static String book7= "Harry Potter and the Deathly Hallows";
     LayoutInflater inflator;
     TextView bookSumm;
-    EditText remind;
-    EditText edit_place;
     AlertDialog alertDialog;
     Button no;
     Button yes;

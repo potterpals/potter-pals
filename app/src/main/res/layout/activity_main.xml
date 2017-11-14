@@ -156,6 +156,14 @@
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/options"
                 android:text="Invite your Friends!" />
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/options"
+                android:text="See a Twitter Graph!" />
 
         </RadioGroup>
 
@@ -168,6 +176,8 @@
             android:layout_toRightOf="@+id/welcomeText"
             android:background="@android:color/background_light"
             app:srcCompat="@drawable/bolt" />
+
+
 
     </RelativeLayout>
 

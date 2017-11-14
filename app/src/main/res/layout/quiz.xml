@@ -24,5 +24,69 @@
         android:textColor="@color/golden"
         android:textSize="18sp" />
 
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/selections"
+        android:layout_below="@+id/textView4"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_marginTop="19dp">
+
+        <RadioButton
+            android:id="@+id/sel1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView4"
+            android:layout_alignStart="@+id/textView4"
+            android:layout_below="@+id/textView4"
+            android:layout_marginTop="44dp"
+            android:text="RadioButton" />
+
+        <RadioButton
+            android:id="@+id/sel2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/sel1"
+            android:layout_alignStart="@+id/sel1"
+            android:layout_below="@+id/sel1"
+            android:layout_marginTop="57dp"
+            android:text="RadioButton" />
+
+        <RadioButton
+            android:id="@+id/sel3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/sel2"
+            android:layout_alignRight="@+id/sel2"
+            android:layout_below="@+id/sel2"
+            android:layout_marginTop="58dp"
+            android:text="RadioButton" />
+
+        <RadioButton
+            android:id="@+id/sel4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/sel3"
+            android:layout_alignStart="@+id/sel3"
+            android:layout_below="@+id/sel3"
+            android:layout_marginTop="45dp"
+            android:text="RadioButton" />
+
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/selections"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/selections"
+        android:layout_marginBottom="57dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:text="TextView" />
+
 
 </RelativeLayout>
