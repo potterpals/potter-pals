@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1">
@@ -82,22 +83,34 @@
         android:id="@+id/Next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Next"
         android:layout_alignBaseline="@+id/results"
         android:layout_alignBottom="@+id/results"
+        android:layout_alignEnd="@+id/selections"
         android:layout_alignRight="@+id/selections"
-        android:layout_alignEnd="@+id/selections" />
+        android:backgroundTint="@color/garnet"
+        android:text="Next"
+        android:textColor="@color/golden" />
 
     <Button
         android:id="@+id/results"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get Results"
-        android:layout_marginTop="44dp"
-        android:layout_marginRight="17dp"
-        android:layout_marginEnd="17dp"
-        android:layout_below="@+id/selections"
+        android:layout_alignEnd="@+id/question_text"
         android:layout_alignRight="@+id/question_text"
-        android:layout_alignEnd="@+id/question_text" />
+        android:layout_below="@+id/selections"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
+        android:layout_marginTop="44dp"
+        android:backgroundTint="@color/garnet"
+        android:text="Get Results"
+        android:textColor="@color/golden" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/book1"
+        />
 
 </RelativeLayout>
