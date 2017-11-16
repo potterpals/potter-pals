@@ -5,10 +5,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.ToggleButton;
 
 
 /**
@@ -16,27 +12,26 @@ import android.widget.ToggleButton;
  */
 
 public class HouseQuiz extends AppCompatActivity
-
-
 {
-
-    TextView title;
     Button next;
     int GryffCount=0;
     int HuffCount=0;
     int SlythCount=0;
     int RavenCount=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.quiz);
-        title = (TextView) findViewById(R.id.title);
+
+        next = (Button) findViewById(R.id.Next);
         final RadioButton sel1 = (RadioButton)findViewById(R.id.sel1);
         final RadioButton sel2 = (RadioButton)findViewById(R.id.sel2);
         final RadioButton sel3 = (RadioButton)findViewById(R.id.sel3);
         final RadioButton sel4 = (RadioButton)findViewById(R.id.sel4);
-        RadioGroup selections = (RadioGroup) findViewById(R.id.selections);
+
+        next.setVisibility(View.INVISIBLE);
 
         sel1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                                             @Override
@@ -44,8 +39,8 @@ public class HouseQuiz extends AppCompatActivity
                                                 if (isChecked)
                                                 {
                                                     //INCREMENT THE COUNT FOR GRYFINDOR;
+                                                    next.setVisibility(View.VISIBLE);
                                                 }
-
                                             }
                                         }
         );
@@ -56,6 +51,7 @@ public class HouseQuiz extends AppCompatActivity
                                                 if (isChecked)
                                                 {
                                                     //INCREMENT THE COUNT FOR HUFFLEPUFF
+                                                    next.setVisibility(View.VISIBLE);
                                                 }
                                             }
                                         }
@@ -67,6 +63,7 @@ public class HouseQuiz extends AppCompatActivity
                                                 if (isChecked)
                                                 {
                                                     //INCREMENT THE COUNT FOR SLYTHERIN
+                                                    next.setVisibility(View.VISIBLE);
                                                 }
                                             }
                                         }
@@ -77,26 +74,10 @@ public class HouseQuiz extends AppCompatActivity
                                                 if (isChecked)
                                                 {
                                                     //INCREMENT THE COUNT FOR RAVENCLAW
+                                                    next.setVisibility(View.VISIBLE);
                                                 }
                                             }
                                         }
         );
-
-
-
-
-
-
-//        next.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(getApplicationContext(),"clicked on me ", Toast.LENGTH_LONG).show();
-//                Toast.makeText(getApplicationContext(),id,Toast.LENGTH_LONG).show();
-//            }
-//        });
-
-
-
-
     }
 }
