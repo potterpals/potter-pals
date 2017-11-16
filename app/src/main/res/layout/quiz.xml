@@ -100,5 +100,4 @@
         android:layout_alignRight="@+id/question_text"
         android:layout_alignEnd="@+id/question_text" />
 
-
 </RelativeLayout>

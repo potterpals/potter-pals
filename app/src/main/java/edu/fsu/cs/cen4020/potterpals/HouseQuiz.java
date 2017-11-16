@@ -21,7 +21,7 @@ public class HouseQuiz extends AppCompatActivity
     int HuffCount=0;
     int SlythCount=0;
     int RavenCount=0;
-    int questionCount = 1;
+    int count = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +43,11 @@ public class HouseQuiz extends AppCompatActivity
 
 
         //Question assigned to the textview
-        question.setText("Question " + questionCount);
-        sel1.setText("answer 1 - declared from: HouseQuiz.java");
-        sel2.setText("answer 2 - declared from: HouseQuiz.java");
-        sel3.setText("answer 3 - declared from: HouseQuiz.java");
-        sel4.setText("answer 4 - declared from: HouseQuiz.java");
+        question.setText("Question " + count);
+        sel1.setText("answer 1 - declared from: HouseQuiz.java. Count: " + count);
+        sel2.setText("answer 2 - declared from: HouseQuiz.java. Count: " + count);
+        sel3.setText("answer 3 - declared from: HouseQuiz.java. Count: " + count);
+        sel4.setText("answer 4 - declared from: HouseQuiz.java. Count: " + count);
 
 
 
@@ -107,13 +107,16 @@ public class HouseQuiz extends AppCompatActivity
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ++questionCount;
-                if (questionCount <= 10) {
-                    //If question limit is not reached; display next question
-
-                    question.setText("Question " + questionCount);
+                ++count;
+                if (count <= 10) {
+                    //If question limit is not reached; display next question & corresponding answers
+                    question.setText("Question " + count);
+                    sel1.setText("answer 1 - declared from: HouseQuiz.java. Count: " + count);
+                    sel2.setText("answer 2 - declared from: HouseQuiz.java. Count: " + count);
+                    sel3.setText("answer 3 - declared from: HouseQuiz.java. Count: " + count);
+                    sel4.setText("answer 4 - declared from: HouseQuiz.java. Count: " + count);
                 }
-                else if (questionCount > 10){
+                else if (count > 10){
                     //"get results button becomes visible"
                     end.setVisibility(View.VISIBLE);
                     //"Next" button is invisible to any clicks - can go no further
