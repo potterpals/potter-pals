@@ -44,6 +44,11 @@ public class HouseQuiz extends AppCompatActivity
 
         //Question assigned to the textview
         question.setText("Question " + questionCount);
+        sel1.setText("answer 1 - declared from: HouseQuiz.java");
+        sel2.setText("answer 2 - declared from: HouseQuiz.java");
+        sel3.setText("answer 3 - declared from: HouseQuiz.java");
+        sel4.setText("answer 4 - declared from: HouseQuiz.java");
+
 
 
         sel1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
