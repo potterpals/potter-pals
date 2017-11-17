@@ -1,27 +1,13 @@
 package edu.fsu.cs.cen4020.potterpals;
 
-import android.content.Context;
 import android.content.Intent;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.RadioButton;
-import android.widget.Toast;
-import android.widget.TextView;
-import static edu.fsu.cs.cen4020.potterpals.R.array.book_nums;
-
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +34,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //Radio Button start corresponding intent associated with the selections
         RadioButton readSumm = (RadioButton)findViewById(R.id.radioFemale);
         RadioButton takeQuiz = (RadioButton) findViewById(R.id.quiz);
         RadioButton invite = (RadioButton) findViewById(R.id.invite);
+        RadioButton takeQuiz2 = (RadioButton)findViewById(R.id.quiz2);
 
         //CLICKING ON THIS SHOWS LIST OF BOOKS
         readSumm.setOnClickListener(new View.OnClickListener() {
@@ -84,7 +73,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //USER CAN TAKE TO QUIZ 2 FEATURE
+        takeQuiz2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Quiz2.class);
+                startActivity(intent);
 
 
-    }
+            }
+    } );
 }

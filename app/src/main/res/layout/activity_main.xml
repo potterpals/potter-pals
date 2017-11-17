@@ -137,7 +137,7 @@
                 android:id="@+id/radioFemale"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Read Book Summaries" />
+                android:text="Read Book Summaries..." />
 
             <RadioButton
                 android:id="@+id/quiz"
@@ -147,7 +147,17 @@
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/options"
                 android:layout_weight="0.04"
-                android:text="Take a HOUSE QUIZ" />
+                android:text="Take a HOUSE QUIZ!" />
+
+            <RadioButton
+                android:id="@+id/quiz2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/options"
+                android:text="Test your Harry Potter knowledge!" />
+
             <RadioButton
                 android:id="@+id/invite"
                 android:layout_width="wrap_content"
@@ -156,6 +166,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/options"
                 android:text="Invite your Friends!" />
+
             <RadioButton
                 android:id="@+id/radioButton"
                 android:layout_width="wrap_content"

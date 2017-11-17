@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/title_q2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="HOUSE QUIZ"
@@ -13,14 +13,14 @@
         android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/question_text"
+        android:id="@+id/question_text_q2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
         android:text="Question 1 : Insert question here"
         android:textColor="@color/golden"
         android:textSize="18sp"
-        android:layout_below="@+id/title"
+        android:layout_below="@+id/title_q2"
         android:layout_centerHorizontal="true" />
 
     <RadioGroup
@@ -29,46 +29,46 @@
         android:id="@+id/selections"
         android:layout_marginLeft="42dp"
         android:layout_marginStart="42dp"
-        android:layout_below="@+id/question_text"
+        android:layout_below="@+id/question_text_q2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
         <RadioButton
-            android:id="@+id/sel1"
+            android:id="@+id/sel1_q2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView4"
-            android:layout_alignStart="@+id/textView4"
+            android:layout_alignLeft="@+id/question_text_q2"
+            android:layout_alignStart="@+id/question_text_q2"
             android:layout_below="@+id/textView4"
             android:layout_marginTop="44dp"
             android:text="Answer 1" />
 
         <RadioButton
-            android:id="@+id/sel2"
+            android:id="@+id/sel2_q2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/sel1"
-            android:layout_alignStart="@+id/sel1"
+            android:layout_alignLeft="@+id/sel1_q2"
+            android:layout_alignStart="@+id/sel1_q2"
             android:layout_below="@+id/sel1"
             android:layout_marginTop="57dp"
             android:text="Answer 2" />
 
         <RadioButton
-            android:id="@+id/sel3"
+            android:id="@+id/sel3_q2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/sel2"
-            android:layout_alignRight="@+id/sel2"
+            android:layout_alignEnd="@+id/sel2_q2"
+            android:layout_alignRight="@+id/sel2_q2"
             android:layout_below="@+id/sel2"
             android:layout_marginTop="58dp"
             android:text="Answer 3" />
 
         <RadioButton
-            android:id="@+id/sel4"
+            android:id="@+id/sel4_q2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/sel3"
-            android:layout_alignStart="@+id/sel3"
+            android:layout_alignLeft="@+id/sel3_q2"
+            android:layout_alignStart="@+id/sel3_q2"
             android:layout_below="@+id/sel3"
             android:layout_marginTop="45dp"
             android:text="Answer 4" />
@@ -77,26 +77,26 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/Next"
+        android:id="@+id/Next_q2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/garnet"
         android:text="Next"
         android:textColor="@color/golden"
         android:layout_below="@+id/selections"
-        android:layout_alignRight="@+id/question_text"
-        android:layout_alignEnd="@+id/question_text"
+        android:layout_alignRight="@+id/question_text_q2"
+        android:layout_alignEnd="@+id/question_text_q2"
         android:layout_marginTop="36dp" />
 
     <Button
-        android:id="@+id/results"
+        android:id="@+id/results_q2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/garnet"
         android:text="Get Results"
         android:textColor="@color/golden"
-        android:layout_alignBaseline="@+id/Next"
-        android:layout_alignBottom="@+id/Next"
+        android:layout_alignBaseline="@+id/Next_q2"
+        android:layout_alignBottom="@+id/Next_q2"
         android:layout_alignLeft="@+id/question_text"
         android:layout_alignStart="@+id/question_text"
         android:layout_marginLeft="12dp"
