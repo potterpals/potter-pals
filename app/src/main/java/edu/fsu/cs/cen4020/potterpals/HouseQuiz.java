@@ -1,6 +1,5 @@
 package edu.fsu.cs.cen4020.potterpals;
 
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,8 +8,6 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
-
-import java.util.Arrays;
 
 
 /**
@@ -63,6 +60,7 @@ public class HouseQuiz extends AppCompatActivity
         question = (TextView) findViewById(R.id.question_text);
         house = (ImageView) findViewById(R.id.imageView4);
         house.setVisibility(View.INVISIBLE);
+
         final RadioButton sel1 = (RadioButton)findViewById(R.id.sel1);
         final RadioButton sel2 = (RadioButton)findViewById(R.id.sel2);
         final RadioButton sel3 = (RadioButton)findViewById(R.id.sel3);
