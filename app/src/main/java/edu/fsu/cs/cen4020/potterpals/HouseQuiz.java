@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import java.util.Arrays;
+
 
 /**
  * Created by sap15e on 11/1/2017.
@@ -26,6 +28,7 @@ public class HouseQuiz extends AppCompatActivity
     int RavenCount=0;
     int count = 0;
     int answerCount=1;
+    String largest;
 //String [Question][Answers]. Should be [9][4] i.e. 10 by 5
     String[][] QuestionArray = {
         {"You find a Remembrall on the ground but there is no one around to claim it. What do you do?", "Actively look for the owner to ensure no one else takes it", "Keep the Remembrall for yourself", "Report the Remembrall as lost and hand it over to one of the professors", "Play with the Remembrall for a while before trying to return it"},
@@ -149,7 +152,15 @@ public class HouseQuiz extends AppCompatActivity
                     sel4.setText(QuestionArray[count][answerCount+3]);
                 }
                 else if (count == 10){
-                    //"get results button becomes visible"
+                    //"get results button becomes visible
+                    if(GryffCount >= SlythCount && GryffCount >= HuffCount && GryffCount >= RavenCount)
+                            largest="Gryffindor";
+                    else if(SlythCount >= GryffCount && SlythCount >= HuffCount && SlythCount >= RavenCount)
+                            largest="Slytherin";
+                    else if(HuffCount >= GryffCount && HuffCount >= SlythCount && HuffCount >= RavenCount)
+                            largest="Hufflepuff";
+                    else if(RavenCount >= GryffCount && RavenCount >= SlythCount && RavenCount >= HuffCount)
+                            largest="Ravenclaw";
                     end.setVisibility(View.VISIBLE);
                     //"Next" button is invisible to any clicks - can go no further
                     next.setVisibility(View.INVISIBLE);
@@ -165,7 +176,7 @@ public class HouseQuiz extends AppCompatActivity
                 sel2.setVisibility(View.INVISIBLE);
                 sel3.setVisibility(View.INVISIBLE);
                 sel4.setVisibility(View.INVISIBLE);
-                question.setText("You're sorted into...");
+                question.setText("You're sorted into..." + largest);
                 house.setVisibility(View.VISIBLE);
             }
         });
