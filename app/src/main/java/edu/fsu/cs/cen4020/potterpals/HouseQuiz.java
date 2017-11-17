@@ -100,8 +100,8 @@ public class HouseQuiz extends AppCompatActivity
                                             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                                                 if (isChecked)
                                                 {
-                                                    //INCREMENT THE COUNT FOR HUFFLEPUFF
-                                                    HuffCount++;
+                                                    //INCREMENT THE COUNT FOR SLYTHERIN
+                                                    SlythCount++;
                                                     next.setVisibility(View.VISIBLE);
                                                 }
                                             }
@@ -113,8 +113,8 @@ public class HouseQuiz extends AppCompatActivity
                                             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                                                 if (isChecked)
                                                 {
-                                                    //INCREMENT THE COUNT FOR SLYTHERIN
-                                                    SlythCount++;
+                                                    //INCREMENT THE COUNT FOR RAVENCLAW
+                                                    RavenCount++;
                                                     next.setVisibility(View.VISIBLE);
                                                 }
                                             }
@@ -125,8 +125,8 @@ public class HouseQuiz extends AppCompatActivity
                                             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                                                 if (isChecked)
                                                 {
-                                                    //INCREMENT THE COUNT FOR RAVENCLAW
-                                                    RavenCount++;
+                                                    //INCREMENT THE COUNT FOR HUFFLEPUFF
+                                                    HuffCount++;
                                                     next.setVisibility(View.VISIBLE);
                                                 }
                                             }
