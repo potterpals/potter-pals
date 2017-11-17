@@ -1,10 +1,12 @@
 package edu.fsu.cs.cen4020.potterpals;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -17,6 +19,7 @@ public class HouseQuiz extends AppCompatActivity
 {
     Button next, end;
     TextView question;
+    ImageView house;
     int GryffCount=0;
     int HuffCount=0;
     int SlythCount=0;
@@ -55,6 +58,8 @@ public class HouseQuiz extends AppCompatActivity
         next = (Button) findViewById(R.id.Next);
         end = (Button) findViewById(R.id.results);
         question = (TextView) findViewById(R.id.question_text);
+        house = (ImageView) findViewById(R.id.imageView4);
+        house.setVisibility(View.INVISIBLE);
         final RadioButton sel1 = (RadioButton)findViewById(R.id.sel1);
         final RadioButton sel2 = (RadioButton)findViewById(R.id.sel2);
         final RadioButton sel3 = (RadioButton)findViewById(R.id.sel3);
@@ -152,6 +157,18 @@ public class HouseQuiz extends AppCompatActivity
             }//end view
         }//end listener
         );
+
+        end.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sel1.setVisibility(View.INVISIBLE);
+                sel2.setVisibility(View.INVISIBLE);
+                sel3.setVisibility(View.INVISIBLE);
+                sel4.setVisibility(View.INVISIBLE);
+                question.setText("You're sorted into...");
+                house.setVisibility(View.VISIBLE);
+            }
+        });
 
     }
 
