@@ -26,6 +26,8 @@
         </activity>
         <activity android:name=".HouseQuiz">
         </activity>
+        <activity android:name=".Quiz2">
+        </activity>
         <activity android:name=".LoginUser">
         </activity>
         <activity android:name=".Invite">
