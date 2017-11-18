@@ -1,6 +1,5 @@
 package edu.fsu.cs.cen4020.potterpals;
 
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,8 +8,6 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
-
-import java.util.Arrays;
 
 
 /**
@@ -63,6 +60,7 @@ public class HouseQuiz extends AppCompatActivity
         question = (TextView) findViewById(R.id.question_text);
         house = (ImageView) findViewById(R.id.imageView4);
         house.setVisibility(View.INVISIBLE);
+
         final RadioButton sel1 = (RadioButton)findViewById(R.id.sel1);
         final RadioButton sel2 = (RadioButton)findViewById(R.id.sel2);
         final RadioButton sel3 = (RadioButton)findViewById(R.id.sel3);
@@ -100,8 +98,8 @@ public class HouseQuiz extends AppCompatActivity
                                             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                                                 if (isChecked)
                                                 {
-                                                    //INCREMENT THE COUNT FOR HUFFLEPUFF
-                                                    HuffCount++;
+                                                    //INCREMENT THE COUNT FOR SLYTHERIN
+                                                    SlythCount++;
                                                     next.setVisibility(View.VISIBLE);
                                                 }
                                             }
@@ -113,8 +111,8 @@ public class HouseQuiz extends AppCompatActivity
                                             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                                                 if (isChecked)
                                                 {
-                                                    //INCREMENT THE COUNT FOR SLYTHERIN
-                                                    SlythCount++;
+                                                    //INCREMENT THE COUNT FOR RAVENCLAW
+                                                    RavenCount++;
                                                     next.setVisibility(View.VISIBLE);
                                                 }
                                             }
@@ -125,8 +123,8 @@ public class HouseQuiz extends AppCompatActivity
                                             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                                                 if (isChecked)
                                                 {
-                                                    //INCREMENT THE COUNT FOR RAVENCLAW
-                                                    RavenCount++;
+                                                    //INCREMENT THE COUNT FOR HUFFLEPUFF
+                                                    HuffCount++;
                                                     next.setVisibility(View.VISIBLE);
                                                 }
                                             }
@@ -178,6 +176,24 @@ public class HouseQuiz extends AppCompatActivity
                 sel4.setVisibility(View.INVISIBLE);
                 question.setText("You're sorted into..." + largest);
                 house.setVisibility(View.VISIBLE);
+                if (largest.equals("Gryffindor"))
+                {
+                    house.setImageResource(R.drawable.gryff);
+                }
+                else if(largest.equals("Slytherin"))
+                {
+                    house.setImageResource(R.drawable.slyth);
+
+                }
+                else if (largest.equals("Ravenclaw"))
+                {
+                    house.setImageResource(R.drawable.raven);
+                }
+                else
+                {
+                    house.setImageResource(R.drawable.huff);
+                }
+
             }
         });
 

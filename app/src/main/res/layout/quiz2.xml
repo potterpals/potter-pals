@@ -9,7 +9,7 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="HOUSE QUIZ"
+        android:text="TRIVIA QUIZ"
         android:textAlignment="center"
         android:textColor="@color/garnet"
         android:textSize="24sp" />
@@ -93,19 +93,10 @@
         android:id="@+id/results"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
         android:backgroundTint="@color/garnet"
         android:text="Get Results"
         android:textColor="@color/golden"
-        android:layout_below="@+id/imageView4"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/book1"
-        />
 
 </RelativeLayout>
