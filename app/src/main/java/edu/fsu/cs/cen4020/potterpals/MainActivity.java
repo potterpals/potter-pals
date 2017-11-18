@@ -36,10 +36,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Radio Button start corresponding intent associated with the selections
-        RadioButton readSumm = (RadioButton)findViewById(R.id.radioFemale);
+        RadioButton readSumm = (RadioButton) findViewById(R.id.radioFemale);
         RadioButton takeQuiz = (RadioButton) findViewById(R.id.quiz);
         RadioButton invite = (RadioButton) findViewById(R.id.invite);
-        RadioButton takeQuiz2 = (RadioButton)findViewById(R.id.quiz2);
+        RadioButton takeQuiz2 = (RadioButton) findViewById(R.id.quiz2);
 
         //CLICKING ON THIS SHOWS LIST OF BOOKS
         readSumm.setOnClickListener(new View.OnClickListener() {
@@ -82,5 +82,6 @@ public class MainActivity extends AppCompatActivity {
 
 
             }
-    } );
+        });
+    }
 }

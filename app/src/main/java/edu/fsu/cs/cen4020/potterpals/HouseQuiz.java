@@ -175,9 +175,23 @@ public class HouseQuiz extends AppCompatActivity
                 sel3.setVisibility(View.INVISIBLE);
                 sel4.setVisibility(View.INVISIBLE);
                 question.setText("You're sorted into..." + largest);
+                house.setVisibility(View.VISIBLE);
                 if (largest.equals("Gryffindor"))
                 {
-                    house.setVisibility(View.VISIBLE);
+                    house.setImageResource(R.drawable.gryff);
+                }
+                else if(largest.equals("Slytherin"))
+                {
+                    house.setImageResource(R.drawable.slyth);
+
+                }
+                else if (largest.equals("Ravenclaw"))
+                {
+                    house.setImageResource(R.drawable.raven);
+                }
+                else
+                {
+                    house.setImageResource(R.drawable.huff);
                 }
 
             }

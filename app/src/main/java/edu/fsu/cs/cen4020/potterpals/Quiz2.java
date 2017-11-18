@@ -20,9 +20,9 @@ public class Quiz2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.quiz2);
 
-        next2 = (Button) findViewById(R.id.Next_q2);
-        end2 = (Button) findViewById(R.id.results_q2);
-        question2 = (TextView) findViewById(R.id.question_text_q2);
+        next2 = (Button) findViewById(R.id.Next);
+        end2 = (Button) findViewById(R.id.results);
+        question2 = (TextView) findViewById(R.id.question_text);
 
     }
 
