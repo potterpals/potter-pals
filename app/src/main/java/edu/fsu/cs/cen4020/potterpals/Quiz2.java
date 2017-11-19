@@ -1,7 +1,10 @@
 package edu.fsu.cs.cen4020.potterpals;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -17,6 +20,11 @@ public class Quiz2 extends AppCompatActivity {
 
     Button next2, end2;
     TextView question2;
+
+    LayoutInflater in;
+    Button close;
+    AlertDialog mydialog;
+    Context context = this;
 
     int count = 0;
     int numCorrect = 0;
@@ -70,6 +78,8 @@ public class Quiz2 extends AppCompatActivity {
                                                     //Check if first option is correct answer
                                                     if(correctAnswers[count] == 1)
                                                         ++numCorrect;
+                                                    else
+                                                        displayAnswer();
                                                     next2.setVisibility(View.VISIBLE);
                                                 }
                                             }
@@ -150,6 +160,27 @@ public class Quiz2 extends AppCompatActivity {
 
             }
         });
+    }
+
+    void displayAnswer()
+    {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(context);
+        in = getLayoutInflater();
+        View dialogView = in.inflate (R.layout.ans_dialog,null);
+        dialog.setView(dialogView);
+
+        TextView t1 = dialogView.findViewById(R.id.option_ans);
+        //set the contents of t1 text here according to the correct answer preference
+        //Format to set the contents: t1.setText(Correct option choice);
+
+        close = dialogView.findViewById(R.id.nav_button);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                mydialog.dismiss();
+            }
+        });
+
     }
 
 }
