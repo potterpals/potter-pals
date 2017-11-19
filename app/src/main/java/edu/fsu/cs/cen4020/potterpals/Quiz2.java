@@ -28,6 +28,7 @@ public class Quiz2 extends AppCompatActivity {
 
     int count = 0;
     int numCorrect = 0;
+    boolean correct = false;
 
     //Array with questions and answers String[question #][question and answers]
     String[][] TriviaArray = {
@@ -76,10 +77,11 @@ public class Quiz2 extends AppCompatActivity {
                                                 if (isChecked)
                                                 {
                                                     //Check if first option is correct answer
-                                                    if(correctAnswers[count] == 1)
+                                                    if(correctAnswers[count] == 1) {
                                                         ++numCorrect;
-                                                    else
-                                                        displayAnswer(correctAnswers,TriviaArray,count);
+                                                        correct = true;
+                                                    }
+
                                                     next2.setVisibility(View.VISIBLE);
                                                 }
                                             }
@@ -92,10 +94,11 @@ public class Quiz2 extends AppCompatActivity {
                                                 if (isChecked)
                                                 {
                                                     //Check if second option is correct answer
-                                                    if(correctAnswers[count] == 2)
+                                                    if(correctAnswers[count] == 2) {
                                                         ++numCorrect;
-                                                    else
-                                                        displayAnswer(correctAnswers,TriviaArray,count);
+                                                        correct = true;
+                                                    }
+
                                                     next2.setVisibility(View.VISIBLE);
                                                 }
                                             }
@@ -108,10 +111,11 @@ public class Quiz2 extends AppCompatActivity {
                                                 if (isChecked)
                                                 {
                                                     //Check if third option is correct answer
-                                                    if(correctAnswers[count] == 3)
+                                                    if(correctAnswers[count] == 3) {
                                                         ++numCorrect;
-                                                    else
-                                                        displayAnswer(correctAnswers,TriviaArray,count);
+                                                        correct = true;
+                                                    }
+
                                                     next2.setVisibility(View.VISIBLE);
                                                 }
                                             }
@@ -123,10 +127,11 @@ public class Quiz2 extends AppCompatActivity {
                                                 if (isChecked)
                                                 {
                                                     //Check if fourth option is correct answer
-                                                    if(correctAnswers[count] == 4)
+                                                    if(correctAnswers[count] == 4) {
                                                         ++numCorrect;
-                                                    else
-                                                        displayAnswer(correctAnswers,TriviaArray,count);
+                                                        correct = true;
+                                                    }
+
                                                     next2.setVisibility(View.VISIBLE);
                                                 }
                                             }
@@ -136,6 +141,13 @@ public class Quiz2 extends AppCompatActivity {
         next2.setOnClickListener(new View.OnClickListener() {
                                      @Override
                                      public void onClick(View view) {
+
+                                 // check to see if the wrong answer was submitted, display correct answer if incorrect
+                                 if(!correct)
+                                     displayAnswer(correctAnswers,TriviaArray,count);
+                                 else
+                                     correct = false;
+
                                  ++count;
                                  if (count < 10) {
                                      //If question limit is not reached; display next question & corresponding answers
