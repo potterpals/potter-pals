@@ -22,12 +22,12 @@ public class MyContentProvider extends ContentProvider {
     public final static String COLUMN_HOUSE = "house";
     public final static String COLUMN_PASSWORD = "password";
 
-    public static final Uri CONTENT_URI = Uri.parse("content://edu.fsu.cs.cen4020.potterpals.provider/" + TABLE_NAMESTABLE);
+    public static final Uri CONTENT_URI = Uri.parse("content://edu.fsu.cs.cen4020.potterpals/" + TABLE_NAMESTABLE);
 
-    public static final String SQL_CREATE = "CREATE TABLE " + TABLE_NAMESTABLE + "(" + " _ID INTEGER PRIMARY KEY, "
-             + COLUMN_NAME +
-            " TEXT, " + COLUMN_EMAIL + " TEXT, " + COLUMN_GENDER + " TEXT, " + COLUMN_PASSWORD + " TEXT, " +
-            COLUMN_HOUSE + " TEXT)";
+    public static final String SQL_CREATE = "CREATE TABLE " + TABLE_NAMESTABLE + "(" + " _ID INTEGER PRIMARY KEY, " +
+            COLUMN_EMAIL + " TEXT, " + COLUMN_PASSWORD + " TEXT, " + COLUMN_NAME +
+            " TEXT, " + COLUMN_GENDER + " TEXT, " + COLUMN_HOUSE +
+            " TEXT)";
 
     private MainDataBaseHelper mOpenHelper;
 

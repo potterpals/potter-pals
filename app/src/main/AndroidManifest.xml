@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.fsu.cs.cen4020.potterpals">
+
     <permission android:name="edu.fsu.cs.cen4020.potterpals.permission.READ_PERMISSION" />
     <permission android:name="edu.fsu.cs.cen4020.potterpals.permission.WRITE_PERMISSION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,6 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
 
         <activity android:name=".RegisterUser">
         </activity>
@@ -32,6 +35,8 @@
         </activity>
         <activity android:name=".Invite">
         </activity>
+
+
         <provider
             android:name=".MyContentProvider"
             android:authorities="edu.fsu.cs.cen4020.potterpals"

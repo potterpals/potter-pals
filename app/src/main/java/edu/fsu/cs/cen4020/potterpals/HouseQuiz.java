@@ -196,6 +196,7 @@ public class HouseQuiz extends AppCompatActivity
 
             }
         });
+        end.setVisibility(View.INVISIBLE);
 
     }
 

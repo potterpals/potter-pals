@@ -68,10 +68,4 @@
         android:layout_alignStart="@+id/edit_name" />
 
 
-
-
-
-
-
-
 </RelativeLayout>
