@@ -31,7 +31,7 @@ public class Quiz2 extends AppCompatActivity {
 
     //Array with questions and answers String[question #][question and answers]
     String[][] TriviaArray = {
-            {"What is the difference bewteen the Philosopher's stone and the Sorcerer's stone?","One brings people back to life, the other can make the Elixir of life", "One is used for light magic, the other is used for dark magic", "These are different names for the same stone", "There is no such thing as the philosopher's stone"},
+            {"What is the difference between the Philosopher's stone and the Sorcerer's stone?","One brings people back to life, the other can make the Elixir of life", "One is used for light magic, the other is used for dark magic", "These are different names for the same stone", "There is no such thing as the philosopher's stone"},
             {"Which of these is not one of the Deathly Hallows?", "The Cloak of Invisibility", "The Sorcerer's Stone", "The Elder Wand", "The Resurrection Stone"},
             {"What job does Harry Potter have in the epilogue of Harry Potter and the Deathly Hallows?", "Auror", "Professor", "Wandmaker", "Herbologist"},
             {"Which of these wizards share the same Patronus?", "Lord Voldemort and Bellatrix Lestrange", "Harry Potter and Sirius Black", "Hermione Granger and Professor McGonagall", "Severus Snape and Lily Potter"},
@@ -79,7 +79,7 @@ public class Quiz2 extends AppCompatActivity {
                                                     if(correctAnswers[count] == 1)
                                                         ++numCorrect;
                                                     else
-                                                        displayAnswer();
+                                                        displayAnswer(correctAnswers,TriviaArray,count);
                                                     next2.setVisibility(View.VISIBLE);
                                                 }
                                             }
@@ -94,6 +94,8 @@ public class Quiz2 extends AppCompatActivity {
                                                     //Check if second option is correct answer
                                                     if(correctAnswers[count] == 2)
                                                         ++numCorrect;
+                                                    else
+                                                        displayAnswer(correctAnswers,TriviaArray,count);
                                                     next2.setVisibility(View.VISIBLE);
                                                 }
                                             }
@@ -108,6 +110,8 @@ public class Quiz2 extends AppCompatActivity {
                                                     //Check if third option is correct answer
                                                     if(correctAnswers[count] == 3)
                                                         ++numCorrect;
+                                                    else
+                                                        displayAnswer(correctAnswers,TriviaArray,count);
                                                     next2.setVisibility(View.VISIBLE);
                                                 }
                                             }
@@ -121,6 +125,8 @@ public class Quiz2 extends AppCompatActivity {
                                                     //Check if fourth option is correct answer
                                                     if(correctAnswers[count] == 4)
                                                         ++numCorrect;
+                                                    else
+                                                        displayAnswer(correctAnswers,TriviaArray,count);
                                                     next2.setVisibility(View.VISIBLE);
                                                 }
                                             }
@@ -162,16 +168,18 @@ public class Quiz2 extends AppCompatActivity {
         });
     }
 
-    void displayAnswer()
+    void displayAnswer(int[] correctAnswers, String[][]TriviaArray, int count)
     {
         AlertDialog.Builder dialog = new AlertDialog.Builder(context);
         in = getLayoutInflater();
         View dialogView = in.inflate (R.layout.ans_dialog,null);
         dialog.setView(dialogView);
 
+
         TextView t1 = dialogView.findViewById(R.id.option_ans);
         //set the contents of t1 text here according to the correct answer preference
         //Format to set the contents: t1.setText(Correct option choice);
+        t1.setText(TriviaArray[count][correctAnswers[count]]);
 
         close = dialogView.findViewById(R.id.nav_button);
         close.setOnClickListener(new View.OnClickListener() {
@@ -180,6 +188,9 @@ public class Quiz2 extends AppCompatActivity {
                 mydialog.dismiss();
             }
         });
+        dialog.create();
+        mydialog = dialog.show();
+
 
     }
 
