@@ -34,6 +34,7 @@ public class BookSummary extends AppCompatActivity
     final static String book5= "Harry Potter and the Order of the Phoenix";
     final static String book6= "Harry Potter and the Half-Blood Prince";
     final static String book7= "Harry Potter and the Deathly Hallows";
+
     LayoutInflater inflator;
     TextView bookSumm;
     AlertDialog alertDialog;

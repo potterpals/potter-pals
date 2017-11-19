@@ -38,7 +38,5 @@
             android:exported="true"
             android:readPermission="edu.fsu.cs.cen4020.potterpals.permission.READ_PERMISSION"
             android:writePermission="edu.fsu.cs.cen4020.potterpals.permission.WRITE_PERMISSION" />
-
-
     </application>
 </manifest>
