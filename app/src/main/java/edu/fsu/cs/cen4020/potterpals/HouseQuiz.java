@@ -131,6 +131,8 @@ public class HouseQuiz extends AppCompatActivity
                                         }
         );
 
+
+
         /*
             Implementing questions : Flow of events
                 If questions are less than 10 then next button should take user to the next question
@@ -148,6 +150,11 @@ public class HouseQuiz extends AppCompatActivity
                     sel2.setText(QuestionArray[count][answerCount+1]);
                     sel3.setText(QuestionArray[count][answerCount+2]);
                     sel4.setText(QuestionArray[count][answerCount+3]);
+                    sel1.setChecked(false);
+                    sel2.setChecked(false);
+                    sel3.setChecked(false);
+                    sel4.setChecked(false);
+
                 }
                 else if (count == 10){
                     //"get results button becomes visible

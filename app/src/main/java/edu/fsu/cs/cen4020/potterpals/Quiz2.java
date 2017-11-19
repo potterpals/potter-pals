@@ -152,10 +152,15 @@ public class Quiz2 extends AppCompatActivity {
                                  if (count < 10) {
                                      //If question limit is not reached; display next question & corresponding answers
                                      question2.setText(TriviaArray[count][0]);
+
                                      sel1.setText(TriviaArray[count][1]);
                                      sel2.setText(TriviaArray[count][2]);
                                      sel3.setText(TriviaArray[count][3]);
                                      sel4.setText(TriviaArray[count][4]);
+                                     sel1.setChecked(false);
+                                     sel2.setChecked(false);
+                                     sel3.setChecked(false);
+                                     sel4.setChecked(false);
                                  }
                                  else if (count == 10){
                                      //"get results button becomes visible
