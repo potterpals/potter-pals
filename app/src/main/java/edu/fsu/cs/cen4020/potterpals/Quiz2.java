@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 
@@ -20,7 +21,7 @@ public class Quiz2 extends AppCompatActivity {
 
     Button next2, end2;
     TextView question2;
-
+    RadioGroup selections;
     LayoutInflater in;
     Button close;
     AlertDialog mydialog;
@@ -52,6 +53,8 @@ public class Quiz2 extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.quiz2);
+
+        selections = (RadioGroup) findViewById(R.id.selections);
 
         next2 = (Button) findViewById(R.id.Next);
         end2 = (Button) findViewById(R.id.results);
@@ -152,15 +155,12 @@ public class Quiz2 extends AppCompatActivity {
                                  if (count < 10) {
                                      //If question limit is not reached; display next question & corresponding answers
                                      question2.setText(TriviaArray[count][0]);
-
+                                     selections.clearCheck();
                                      sel1.setText(TriviaArray[count][1]);
                                      sel2.setText(TriviaArray[count][2]);
                                      sel3.setText(TriviaArray[count][3]);
                                      sel4.setText(TriviaArray[count][4]);
-                                     sel1.setChecked(false);
-                                     sel2.setChecked(false);
-                                     sel3.setChecked(false);
-                                     sel4.setChecked(false);
+
                                  }
                                  else if (count == 10){
                                      //"get results button becomes visible

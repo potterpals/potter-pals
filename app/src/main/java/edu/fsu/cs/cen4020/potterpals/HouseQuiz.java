@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 
@@ -19,6 +20,7 @@ public class HouseQuiz extends AppCompatActivity
     Button next, end;
     TextView question;
     ImageView house;
+    RadioGroup selections;
     int GryffCount=0;
     int HuffCount=0;
     int SlythCount=0;
@@ -57,6 +59,7 @@ public class HouseQuiz extends AppCompatActivity
 
         next = (Button) findViewById(R.id.Next);
         end = (Button) findViewById(R.id.results);
+        selections = (RadioGroup) findViewById(R.id.selections);
         question = (TextView) findViewById(R.id.question_text);
         house = (ImageView) findViewById(R.id.imageView4);
         house.setVisibility(View.INVISIBLE);
@@ -146,14 +149,12 @@ public class HouseQuiz extends AppCompatActivity
                 if (count < 10) {
                     //If question limit is not reached; display next question & corresponding answers
                     question.setText(QuestionArray[count][0]);
+                    selections.clearCheck();
                     sel1.setText(QuestionArray[count][answerCount]);
                     sel2.setText(QuestionArray[count][answerCount+1]);
                     sel3.setText(QuestionArray[count][answerCount+2]);
                     sel4.setText(QuestionArray[count][answerCount+3]);
-                    sel1.setChecked(false);
-                    sel2.setChecked(false);
-                    sel3.setChecked(false);
-                    sel4.setChecked(false);
+
 
                 }
                 else if (count == 10){
