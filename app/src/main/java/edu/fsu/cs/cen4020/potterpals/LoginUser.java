@@ -1,6 +1,7 @@
 package edu.fsu.cs.cen4020.potterpals;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,11 +18,12 @@ import android.widget.Toast;
 
 public class LoginUser extends AppCompatActivity
 {
-    private Cursor mCursor, subCursor;
+    private Cursor mCursor;
     EditText email;
     EditText password;
     Context context = this;
     private String username;
+    public static String name= "NAME";
 
 
     @Override
@@ -99,6 +101,13 @@ public class LoginUser extends AppCompatActivity
                     else {
                        Toast.makeText(context,"Login Successful! \n Username is: " + username, Toast.LENGTH_LONG).show();
                        //START NEW ACTIVITY HERE
+                        // USE BUNDLE TO PASS ON USER'S NAME
+                        Intent intent = new Intent(context,MainActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString(name,username);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+
                     }
 
                 }

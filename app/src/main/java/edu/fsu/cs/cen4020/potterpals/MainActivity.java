@@ -6,6 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import static edu.fsu.cs.cen4020.potterpals.LoginUser.name;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        TextView usersname = (TextView) findViewById(R.id.textView5);
+        usersname.setVisibility(View.INVISIBLE);
         Button signUp = (Button) findViewById(R.id.signup);
         Button login = (Button) findViewById(R.id.login);
 
@@ -83,5 +88,14 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle!=null)
+        {
+            String username =bundle.getString(name);
+            Toast.makeText(getApplicationContext(),"Welcome! " + username, Toast.LENGTH_LONG).show();
+            usersname.setVisibility(View.VISIBLE);
+            usersname.setText("Welcome " + username + "!");
+        }
     }
 }
