@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "660884843981",
+    "firebase_url": "https://potterpals-22325.firebaseio.com",
+    "project_id": "potterpals-22325",
+    "storage_bucket": "potterpals-22325.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660884843981:android:382b6f56dafd878b",
+        "android_client_info": {
+          "package_name": "edu.fsu.cs.cen4020.potterpals"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "660884843981-nv71qr20jblq267nnqphrp0dkv5k5tip.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.fsu.cs.cen4020.potterpals",
+            "certificate_hash": "0af7855902b6562a546b93cf926ae8bad2cfc890"
+          }
+        },
+        {
+          "client_id": "660884843981-gea0ht8i09h5c8gar5v7poonnnmo8c7j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOx2xw4vXcnx5zwr1z9dWXSgyGyyEu4Bs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "660884843981-gea0ht8i09h5c8gar5v7poonnnmo8c7j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

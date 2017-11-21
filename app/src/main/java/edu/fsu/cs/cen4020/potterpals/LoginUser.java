@@ -33,12 +33,13 @@ public class LoginUser extends AppCompatActivity
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String empIDStr = email.getText().toString();
                 String accessCodeStr = password.getText().toString();
 
                 Boolean allIsGood = true;
 
-                // preliminary field error checking
+                // ERROR CHECKING
                 if (empIDStr.equals("")) {
                     allIsGood = false;
                     email.setError("Enter an email");
@@ -49,13 +50,16 @@ public class LoginUser extends AppCompatActivity
                     password.setError("Enter an password");
                 }
 
+                //IF NO ERRORS,THEN MAKE QUERY TO DATABASE TO SEE IF USER'S EMAIL AND PASSWORD MATCH
                 if (allIsGood) {
                     String[] mProjection;
                     String mSelectionClause;
                     String[] mSelectionArgs;
 
                     int id = 0;
+                    String name = "";
 
+                    //MAKE ARGUMENTS TO BE PASSED ONTO QUERY
                     mProjection = new String[]{"_ID", MyContentProvider.COLUMN_EMAIL, MyContentProvider.COLUMN_PASSWORD};
                     mSelectionClause = MyContentProvider.COLUMN_EMAIL + " = ? AND " + MyContentProvider.COLUMN_PASSWORD + " = ?";
                     mSelectionArgs = new String[]{empIDStr, accessCodeStr};
@@ -67,9 +71,9 @@ public class LoginUser extends AppCompatActivity
                     Boolean loginSuccess = false;
                     if (mCursor != null) {
                         while (mCursor.moveToNext()) {
+                            //THIS IF STATEMENT CHECKS FOR THE EMAIL AND PASSWORD USER TYPED IN AND IF BOTH  MATCH THEN SUCCESS
                             if (mCursor.getString(1).equals(empIDStr) && mCursor.getString(2).equals(accessCodeStr)) {
                                 id = mCursor.getInt(0);
-                                username = mCursor.getString(3);
                                 loginSuccess = true;
                             }
                         }
@@ -80,7 +84,6 @@ public class LoginUser extends AppCompatActivity
                         password.setError("Incorrect email or password");
                     } else {
                        Toast.makeText(context,"Login Successful!",Toast.LENGTH_LONG).show();
-                        Toast.makeText(context,username,Toast.LENGTH_LONG).show();
 
                     }
 

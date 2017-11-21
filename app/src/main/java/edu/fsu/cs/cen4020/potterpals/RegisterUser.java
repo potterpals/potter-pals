@@ -137,14 +137,14 @@ public class RegisterUser extends AppCompatActivity {
                     Boolean idAlreadyExists = false;
                     if (mCursor != null) {
                         while (mCursor.moveToNext()) {
-                            if (mCursor.getString(0).equals(email)) {
+                            if (mCursor.getString(0).equals(emailStr)) {
                                 idAlreadyExists = true;
                             }
                         }
                     }
 
                     if (idAlreadyExists) {
-                        email.setError("Employee ID already exists!");
+                        email.setError("This email is already registered");
                     } else {
                         ContentValues values = new ContentValues();
 
