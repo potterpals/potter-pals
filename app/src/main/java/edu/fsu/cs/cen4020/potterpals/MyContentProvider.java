@@ -73,7 +73,9 @@ public class MyContentProvider extends ContentProvider {
     }
 
     protected static final class MainDataBaseHelper extends SQLiteOpenHelper {
-        MainDataBaseHelper(Context context) { super(context, DBNAME, null, DBVERSION); }
+        MainDataBaseHelper(Context context) {
+            super(context, DBNAME, null, DBVERSION);
+        }
 
         @Override
         public void onCreate(SQLiteDatabase db) {

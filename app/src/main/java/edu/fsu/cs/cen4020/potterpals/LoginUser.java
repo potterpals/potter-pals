@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,19 +17,21 @@ import android.widget.Toast;
 
 public class LoginUser extends AppCompatActivity
 {
-    private Cursor mCursor;
+    private Cursor mCursor, subCursor;
     EditText email;
     EditText password;
     Context context = this;
-    String username;
+    private String username;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
         Button login = (Button) findViewById(R.id.button_login);
-        email =(EditText) findViewById(R.id.edit_name);
-        password= (EditText) findViewById(R.id.edit_password);
+        email = (EditText) findViewById(R.id.edit_name);
+        password = (EditText) findViewById(R.id.edit_password);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +46,7 @@ public class LoginUser extends AppCompatActivity
                 if (empIDStr.equals("")) {
                     allIsGood = false;
                     email.setError("Enter an email");
+
                 }
 
                 if (accessCodeStr.equals("")) {
@@ -57,11 +61,19 @@ public class LoginUser extends AppCompatActivity
                     String[] mSelectionArgs;
 
                     int id = 0;
-                    String name = "";
 
-                    //MAKE ARGUMENTS TO BE PASSED ONTO QUERY
-                    mProjection = new String[]{"_ID", MyContentProvider.COLUMN_EMAIL, MyContentProvider.COLUMN_PASSWORD};
-                    mSelectionClause = MyContentProvider.COLUMN_EMAIL + " = ? AND " + MyContentProvider.COLUMN_PASSWORD + " = ?";
+                    /*
+                        MAKE ARGUMENTS TO BE PASSED ONTO QUERY:
+                        mProjection includes 3 parameters to ensure that the username is retrieved
+                        for the user logging using his/her email and password fields only.
+                     */
+
+                    mProjection = new String[]{"_ID", MyContentProvider.COLUMN_EMAIL,
+                            MyContentProvider.COLUMN_PASSWORD, MyContentProvider.COLUMN_NAME};
+
+                    mSelectionClause = MyContentProvider.COLUMN_EMAIL + " = ? AND " +
+                            MyContentProvider.COLUMN_PASSWORD + " = ? ";
+
                     mSelectionArgs = new String[]{empIDStr, accessCodeStr};
 
                     // query database for supplied login information
@@ -72,8 +84,9 @@ public class LoginUser extends AppCompatActivity
                     if (mCursor != null) {
                         while (mCursor.moveToNext()) {
                             //THIS IF STATEMENT CHECKS FOR THE EMAIL AND PASSWORD USER TYPED IN AND IF BOTH  MATCH THEN SUCCESS
-                            if (mCursor.getString(1).equals(empIDStr) && mCursor.getString(2).equals(accessCodeStr)) {
-                                id = mCursor.getInt(0);
+                            if (mCursor.getString(1).equals(empIDStr) && mCursor.getString(2).equals(accessCodeStr))
+                            {
+                                username = mCursor.getString(3);    //tester string that shows the username on login toast
                                 loginSuccess = true;
                             }
                         }
@@ -82,9 +95,10 @@ public class LoginUser extends AppCompatActivity
                     if(!loginSuccess) {
                         email.setError("Incorrect email or password");
                         password.setError("Incorrect email or password");
-                    } else {
-                       Toast.makeText(context,"Login Successful!",Toast.LENGTH_LONG).show();
-
+                    }
+                    else {
+                       Toast.makeText(context,"Login Successful! \n Username is: " + username, Toast.LENGTH_LONG).show();
+                       //START NEW ACTIVITY HERE
                     }
 
                 }
