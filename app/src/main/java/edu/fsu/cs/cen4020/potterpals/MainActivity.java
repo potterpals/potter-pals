@@ -29,6 +29,25 @@ public class MainActivity extends AppCompatActivity {
 
         welcome.setVisibility(View.INVISIBLE);
         deleteUser.setVisibility(View.INVISIBLE);
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle!=null)
+        {
+            String username =bundle.getString(name);
+            if (username!=null)
+            {
+                usersname.setText("Welcome " + username + "!!");
+                //usersname.setVisibility(View.VISIBLE);
+                login.setVisibility(View.INVISIBLE);
+                signUp.setVisibility(View.INVISIBLE);
+                signIn.setVisibility(View.INVISIBLE);
+                welcome.setVisibility(View.VISIBLE);
+                welcome.setText("Welcome " + username + "!!");
+                signupText.setVisibility(View.INVISIBLE);
+                deleteUser.setVisibility(View.VISIBLE);
+            }
+        }
+
         //SIGNUP BUTTON STARTS ACTIVITY WITH SIGN IN FORM
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,24 +123,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Bundle bundle = getIntent().getExtras();
-        if (bundle!=null)
-        {
-            String username =bundle.getString(name);
-            if (username!=null)
-            {
-                usersname.setText("Welcome " + username + "!!");
-                //usersname.setVisibility(View.VISIBLE);
-            }
-            login.setVisibility(View.INVISIBLE);
-            signUp.setVisibility(View.INVISIBLE);
-            signIn.setVisibility(View.INVISIBLE);
-            welcome.setVisibility(View.VISIBLE);
-            welcome.setText("Welcome " + username + "!!");
-            signupText.setVisibility(View.INVISIBLE);
-            deleteUser.setVisibility(View.VISIBLE);
 
-        }
 
         deleteUser.setOnClickListener(new View.OnClickListener() {
             @Override
