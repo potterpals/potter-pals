@@ -19,8 +19,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         TextView usersname = (TextView) findViewById(R.id.textView5);
         usersname.setVisibility(View.INVISIBLE);
+        TextView signIn= (TextView) findViewById(R.id.signInText);
+        TextView signupText = (TextView) findViewById(R.id.signUpText);
         Button signUp = (Button) findViewById(R.id.signup);
         Button login = (Button) findViewById(R.id.login);
+        TextView welcome = (TextView) findViewById(R.id.textView6);
+
+        welcome.setVisibility(View.INVISIBLE);
 
         //SIGNUP BUTTON STARTS ACTIVITY WITH SIGN IN FORM
         signUp.setOnClickListener(new View.OnClickListener() {
@@ -104,9 +109,14 @@ public class MainActivity extends AppCompatActivity {
             if (username!=null)
             {
                 usersname.setText("Welcome " + username + "!!");
-                usersname.setVisibility(View.VISIBLE);
+                //usersname.setVisibility(View.VISIBLE);
             }
-
+            login.setVisibility(View.INVISIBLE);
+            signUp.setVisibility(View.INVISIBLE);
+            signIn.setVisibility(View.INVISIBLE);
+            welcome.setVisibility(View.VISIBLE);
+            welcome.setText("Welcome " + username + "!!");
+            signupText.setVisibility(View.INVISIBLE);
 
         }
     }
