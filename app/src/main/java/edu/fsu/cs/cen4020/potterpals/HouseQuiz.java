@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -145,32 +146,40 @@ public class HouseQuiz extends AppCompatActivity
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ++count;
-                if (count < 10) {
-                    //If question limit is not reached; display next question & corresponding answers
-                    question.setText(QuestionArray[count][0]);
-                    selections.clearCheck();
-                    sel1.setText(QuestionArray[count][answerCount]);
-                    sel2.setText(QuestionArray[count][answerCount+1]);
-                    sel3.setText(QuestionArray[count][answerCount+2]);
-                    sel4.setText(QuestionArray[count][answerCount+3]);
-
-
+                if(selections.getCheckedRadioButtonId()==-1)
+                {
+                    Toast.makeText(getApplicationContext(),"Please select something",Toast.LENGTH_SHORT).show();
                 }
-                else if (count == 10){
-                    //"get results button becomes visible
-                    if(GryffCount >= SlythCount && GryffCount >= HuffCount && GryffCount >= RavenCount)
+                else
+                {
+                    ++count;
+                    if (count < 10) {
+                        //If question limit is not reached; display next question & corresponding answers
+                        question.setText(QuestionArray[count][0]);
+                        selections.clearCheck();
+                        sel1.setText(QuestionArray[count][answerCount]);
+                        sel2.setText(QuestionArray[count][answerCount+1]);
+                        sel3.setText(QuestionArray[count][answerCount+2]);
+                        sel4.setText(QuestionArray[count][answerCount+3]);
+
+
+                    }
+                    else if (count == 10){
+                        //"get results button becomes visible
+                        if(GryffCount >= SlythCount && GryffCount >= HuffCount && GryffCount >= RavenCount)
                             largest="Gryffindor";
-                    else if(SlythCount >= GryffCount && SlythCount >= HuffCount && SlythCount >= RavenCount)
+                        else if(SlythCount >= GryffCount && SlythCount >= HuffCount && SlythCount >= RavenCount)
                             largest="Slytherin";
-                    else if(HuffCount >= GryffCount && HuffCount >= SlythCount && HuffCount >= RavenCount)
+                        else if(HuffCount >= GryffCount && HuffCount >= SlythCount && HuffCount >= RavenCount)
                             largest="Hufflepuff";
-                    else if(RavenCount >= GryffCount && RavenCount >= SlythCount && RavenCount >= HuffCount)
+                        else if(RavenCount >= GryffCount && RavenCount >= SlythCount && RavenCount >= HuffCount)
                             largest="Ravenclaw";
-                    end.setVisibility(View.VISIBLE);
-                    //"Next" button is invisible to any clicks - can go no further
-                    next.setVisibility(View.INVISIBLE);
+                        end.setVisibility(View.VISIBLE);
+                        //"Next" button is invisible to any clicks - can go no further
+                        next.setVisibility(View.INVISIBLE);
+                    }
                 }
+
             }//end view
         }//end listener
         );

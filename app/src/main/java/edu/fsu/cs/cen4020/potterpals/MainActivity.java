@@ -101,9 +101,13 @@ public class MainActivity extends AppCompatActivity {
         if (bundle!=null)
         {
             String username =bundle.getString(name);
-            Toast.makeText(getApplicationContext(),"Welcome! " + username, Toast.LENGTH_LONG).show();
-            usersname.setVisibility(View.VISIBLE);
-            usersname.setText("Welcome " + username + "!");
+            if (username!=null)
+            {
+                usersname.setText("Welcome " + username + "!!");
+                usersname.setVisibility(View.VISIBLE);
+            }
+
+
         }
     }
 }

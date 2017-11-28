@@ -99,7 +99,6 @@ public class LoginUser extends AppCompatActivity
                         password.setError("Incorrect email or password");
                     }
                     else {
-                       Toast.makeText(context,"Login Successful! \n Username is: " + username, Toast.LENGTH_LONG).show();
                        //START NEW ACTIVITY HERE
                         // USE BUNDLE TO PASS ON USER'S NAME
                         Intent intent = new Intent(context,MainActivity.class);
