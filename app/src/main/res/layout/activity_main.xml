@@ -51,12 +51,12 @@
             android:id="@+id/imageView3"
             android:layout_width="55dp"
             android:layout_height="50dp"
-            android:background="@android:color/background_light"
-            app:srcCompat="@drawable/bolt"
-            android:layout_alignParentTop="true"
-            android:layout_toStartOf="@+id/welcomeText"
             android:layout_alignBottom="@+id/welcomeText"
-            android:layout_toLeftOf="@+id/welcomeText" />
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/welcomeText"
+            android:layout_toStartOf="@+id/welcomeText"
+            android:background="@android:color/background_light"
+            app:srcCompat="@drawable/bolt" />
 
         <TextView
             android:id="@+id/welcomeText"
@@ -205,7 +205,17 @@
             android:text="Welcome to Potter Pals! Click on one of the options below to see what we have!"
             android:textAlignment="center"
             android:textColor="@color/golden"
-            android:textSize="30sp" />
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/leave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Do you want to leave Potter Pals? We will miss you!"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="29dp" />
 
 
     </RelativeLayout>

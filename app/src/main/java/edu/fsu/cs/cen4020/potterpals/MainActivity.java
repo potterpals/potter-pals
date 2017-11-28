@@ -24,9 +24,11 @@ public class MainActivity extends AppCompatActivity {
         Button signUp = (Button) findViewById(R.id.signup);
         Button login = (Button) findViewById(R.id.login);
         TextView welcome = (TextView) findViewById(R.id.textView6);
+        TextView deleteUser = (TextView) findViewById(R.id.leave);
+
 
         welcome.setVisibility(View.INVISIBLE);
-
+        deleteUser.setVisibility(View.INVISIBLE);
         //SIGNUP BUTTON STARTS ACTIVITY WITH SIGN IN FORM
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,7 +119,16 @@ public class MainActivity extends AppCompatActivity {
             welcome.setVisibility(View.VISIBLE);
             welcome.setText("Welcome " + username + "!!");
             signupText.setVisibility(View.INVISIBLE);
+            deleteUser.setVisibility(View.VISIBLE);
 
         }
+
+        deleteUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, DeleteUser.class);
+                startActivity(intent);
+            }
+        });
     }
 }
