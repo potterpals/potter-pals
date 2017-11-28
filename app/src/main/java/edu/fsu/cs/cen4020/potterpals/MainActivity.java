@@ -17,15 +17,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView usersname = (TextView) findViewById(R.id.textView5);
-        usersname.setVisibility(View.INVISIBLE);
         TextView signIn= (TextView) findViewById(R.id.signInText);
         TextView signupText = (TextView) findViewById(R.id.signUpText);
         Button signUp = (Button) findViewById(R.id.signup);
         Button login = (Button) findViewById(R.id.login);
         TextView welcome = (TextView) findViewById(R.id.textView6);
         TextView deleteUser = (TextView) findViewById(R.id.leave);
-
 
         welcome.setVisibility(View.INVISIBLE);
         deleteUser.setVisibility(View.INVISIBLE);
@@ -36,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
             String username =bundle.getString(name);
             if (username!=null)
             {
-                usersname.setText("Welcome " + username + "!!");
-                //usersname.setVisibility(View.VISIBLE);
                 login.setVisibility(View.INVISIBLE);
                 signUp.setVisibility(View.INVISIBLE);
                 signIn.setVisibility(View.INVISIBLE);
@@ -72,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         RadioButton invite = (RadioButton) findViewById(R.id.invite);
         RadioButton takeQuiz2 = (RadioButton) findViewById(R.id.quiz2);
         RadioButton twitter = (RadioButton) findViewById(R.id.radioButton);
+
         //CLICKING ON THIS SHOWS LIST OF BOOKS
         readSumm.setOnClickListener(new View.OnClickListener() {
             @Override
