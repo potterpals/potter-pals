@@ -11,6 +11,7 @@ import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -146,29 +147,36 @@ public class Quiz2 extends AppCompatActivity {
                                      public void onClick(View view) {
 
                                  // check to see if the wrong answer was submitted, display correct answer if incorrect
-                                 if(!correct)
-                                     displayAnswer(correctAnswers,TriviaArray,count);
-                                 else
-                                     correct = false;
 
-                                 ++count;
-                                 if (count < 10) {
-                                     //If question limit is not reached; display next question & corresponding answers
-                                     question2.setText(TriviaArray[count][0]);
-                                     selections.clearCheck();
-                                     sel1.setText(TriviaArray[count][1]);
-                                     sel2.setText(TriviaArray[count][2]);
-                                     sel3.setText(TriviaArray[count][3]);
-                                     sel4.setText(TriviaArray[count][4]);
+            if(selections.getCheckedRadioButtonId()==-1)
+            {
+                Toast.makeText(getApplicationContext(),"Please select something",Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                if(!correct)
+                    displayAnswer(correctAnswers,TriviaArray,count);
+                else
+                    correct = false;
+                ++count;
+                if (count < 10) {
+                    //If question limit is not reached; display next question & corresponding answers
+                    question2.setText(TriviaArray[count][0]);
+                    selections.clearCheck();
+                    sel1.setText(TriviaArray[count][1]);
+                    sel2.setText(TriviaArray[count][2]);
+                    sel3.setText(TriviaArray[count][3]);
+                    sel4.setText(TriviaArray[count][4]);
 
-                                 }
-                                 else if (count == 10){
-                                     //"get results button becomes visible
-                                     end2.setVisibility(View.VISIBLE);
-                                     //"Next" button is invisible to any clicks - can go no further
-                                     next2.setVisibility(View.INVISIBLE);
-                                 }
-                             }//end view
+                }
+                else if (count == 10){
+                    //"get results button becomes visible
+                    end2.setVisibility(View.VISIBLE);
+                    //"Next" button is invisible to any clicks - can go no further
+                    next2.setVisibility(View.INVISIBLE);
+                }
+            }
+                                     }//end view
                          }//end listener
         );
 
