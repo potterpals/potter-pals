@@ -180,7 +180,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/options"
-                android:text="See a Twitter Graph!" />
+                android:text="See what J.K. Rowling is up to!" />
 
         </RadioGroup>
 

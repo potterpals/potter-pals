@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         RadioButton takeQuiz = (RadioButton) findViewById(R.id.quiz);
         RadioButton invite = (RadioButton) findViewById(R.id.invite);
         RadioButton takeQuiz2 = (RadioButton) findViewById(R.id.quiz2);
-
+        RadioButton twitter = (RadioButton) findViewById(R.id.radioButton);
         //CLICKING ON THIS SHOWS LIST OF BOOKS
         readSumm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +86,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
 
 
+            }
+        });
+
+        twitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, TwitterFeed.class);
+                startActivity(intent);
             }
         });
 

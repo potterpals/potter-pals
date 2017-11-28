@@ -4,7 +4,7 @@
 
     <permission android:name="edu.fsu.cs.cen4020.potterpals.permission.READ_PERMISSION" />
     <permission android:name="edu.fsu.cs.cen4020.potterpals.permission.WRITE_PERMISSION" />
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -35,7 +35,8 @@
         </activity>
         <activity android:name=".Invite">
         </activity>
-
+        <activity android:name=".TwitterFeed">
+        </activity>
 
         <provider
             android:name=".MyContentProvider"
