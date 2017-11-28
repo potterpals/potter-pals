@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import java.util.Random;
+
 /**
  * Created by sap15e on 10/24/2017.
  */
@@ -29,6 +31,8 @@ public class RegisterUser extends AppCompatActivity {
     RadioButton female;
     CheckBox terms;
     Context context = this;
+
+    int randomCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -192,6 +196,29 @@ public class RegisterUser extends AppCompatActivity {
             return false;
         else
             return Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
+    /*
+     STEP 2: Email Authentication
+     Functions: getCode() >> return type: int
+                sendEmail()
+
+     * This function is going to send out a "Test" email to the user entered email
+     * This test email contains a code - the user will then enter this code to prove validity of email
+     *
+     * Code is entered in a dialog pop-up
+     *
+     * Code generation:
+     */
+    public int getCode(){
+        Random random = new Random();
+        //generates a random number in [0,99]
+        randomCode = random.nextInt(100);
+        return randomCode;
+    }
+
+    public void sendEmail(){
+
     }
 
 }
