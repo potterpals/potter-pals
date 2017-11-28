@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -87,6 +89,10 @@ public class RegisterUser extends AppCompatActivity {
                     allIsGood = false;
                 }
 
+                if (validateEmail(emailStr) == false){
+                    email.setError("Email entered is invalid. Try Again.");
+                    allIsGood = false;
+                }
 
                 if (passwordStr.length() == 0) {
                     password.setError("Please enter a password!");
@@ -169,6 +175,23 @@ public class RegisterUser extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    /*
+     STEP 1: Email Authentication
+
+     * This function is used to check if the email entered is a valid email using REGEX
+     * Patterns.EMAIL_ADDRESS matches the pattern:
+     *     USERNAME [** char or num **] + "@" + DOMAIN [** char/num ** ] "." [** char/num **]
+     *
+     * Error messages enabled otherwise
+     */
+
+    public final static boolean validateEmail(String email) {
+        if (TextUtils.isEmpty(email))
+            return false;
+        else
+            return Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
 }
