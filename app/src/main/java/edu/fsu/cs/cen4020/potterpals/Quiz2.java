@@ -50,9 +50,11 @@ public class Quiz2 extends AppCompatActivity {
     //Array with correct answers 1 = first option, 2 = second option, etc.
     int[] correctAnswers = {3, 2, 1, 4, 3, 2, 3, 1, 4, 1};
 
-    //Array with question numbers, used to randomize quiz
+    //Array with question numbers, used to randomize question order
     int[] questionNum = {0, 1, 2, 3 ,4 ,5 ,6 ,7 ,8 ,9};
 
+    //Array with answer choices, used to randomize answer order
+    int[] answerChoice = {1, 2 ,3 ,4};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -74,13 +76,14 @@ public class Quiz2 extends AppCompatActivity {
         end2.setVisibility(View.INVISIBLE);
 
         if(count == 0)
-            ShuffleQuestions(questionNum);
+            ShuffleArray(questionNum);
+        ShuffleArray(answerChoice);
 
         question2.setText(TriviaArray[questionNum[count]][0]);
-        sel1.setText(TriviaArray[questionNum[count]][1]);
-        sel2.setText(TriviaArray[questionNum[count]][2]);
-        sel3.setText(TriviaArray[questionNum[count]][3]);
-        sel4.setText(TriviaArray[questionNum[count]][4]);
+        sel1.setText(TriviaArray[questionNum[count]][answerChoice[0]]);
+        sel2.setText(TriviaArray[questionNum[count]][answerChoice[1]]);
+        sel3.setText(TriviaArray[questionNum[count]][answerChoice[2]]);
+        sel4.setText(TriviaArray[questionNum[count]][answerChoice[3]]);
 
         sel1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                                             @Override
@@ -88,7 +91,8 @@ public class Quiz2 extends AppCompatActivity {
                                                 if (isChecked)
                                                 {
                                                     //Check if first option is correct answer
-                                                    if(correctAnswers[questionNum[count]] == 1) {
+                                                    String chosenAnswer = (sel1.getText()).toString();
+                                                    if(CorrectChoice(questionNum[count],chosenAnswer)){
                                                         ++numCorrect;
                                                         correct = true;
                                                     }
@@ -105,7 +109,8 @@ public class Quiz2 extends AppCompatActivity {
                                                 if (isChecked)
                                                 {
                                                     //Check if second option is correct answer
-                                                    if(correctAnswers[questionNum[count]] == 2) {
+                                                    String chosenAnswer = (sel2.getText()).toString();
+                                                    if(CorrectChoice(questionNum[count],chosenAnswer)) {
                                                         ++numCorrect;
                                                         correct = true;
                                                     }
@@ -122,7 +127,8 @@ public class Quiz2 extends AppCompatActivity {
                                                 if (isChecked)
                                                 {
                                                     //Check if third option is correct answer
-                                                    if(correctAnswers[questionNum[count]] == 3) {
+                                                    String chosenAnswer = (sel3.getText()).toString();
+                                                    if(CorrectChoice(questionNum[count],chosenAnswer)) {
                                                         ++numCorrect;
                                                         correct = true;
                                                     }
@@ -138,7 +144,8 @@ public class Quiz2 extends AppCompatActivity {
                                                 if (isChecked)
                                                 {
                                                     //Check if fourth option is correct answer
-                                                    if(correctAnswers[questionNum[count]] == 4) {
+                                                    String chosenAnswer = (sel4.getText()).toString();
+                                                    if(CorrectChoice(questionNum[count],chosenAnswer)) {
                                                         ++numCorrect;
                                                         correct = true;
                                                     }
@@ -162,18 +169,19 @@ public class Quiz2 extends AppCompatActivity {
             else
             {
                 if(!correct)
-                    displayAnswer(correctAnswers,TriviaArray,count);
+                    displayAnswer(correctAnswers,TriviaArray,questionNum[count]);
                 else
                     correct = false;
                 ++count;
                 if (count < 10) {
                     //If question limit is not reached; display next question & corresponding answers
+                    ShuffleArray(answerChoice);
                     question2.setText(TriviaArray[questionNum[count]][0]);
                     selections.clearCheck();
-                    sel1.setText(TriviaArray[questionNum[count]][1]);
-                    sel2.setText(TriviaArray[questionNum[count]][2]);
-                    sel3.setText(TriviaArray[questionNum[count]][3]);
-                    sel4.setText(TriviaArray[questionNum[count]][4]);
+                    sel1.setText(TriviaArray[questionNum[count]][answerChoice[0]]);
+                    sel2.setText(TriviaArray[questionNum[count]][answerChoice[1]]);
+                    sel3.setText(TriviaArray[questionNum[count]][answerChoice[2]]);
+                    sel4.setText(TriviaArray[questionNum[count]][answerChoice[3]]);
 
                 }
                 else if (count == 10){
@@ -200,7 +208,7 @@ public class Quiz2 extends AppCompatActivity {
         });
     }
 
-    void displayAnswer(int[] correctAnswers, String[][]TriviaArray, int count)
+    void displayAnswer(int[] correctAnswers, String[][]TriviaArray, int questionNum)
     {
         AlertDialog.Builder dialog = new AlertDialog.Builder(context);
         in = getLayoutInflater();
@@ -211,7 +219,7 @@ public class Quiz2 extends AppCompatActivity {
         TextView t1 = dialogView.findViewById(R.id.option_ans);
         //set the contents of t1 text here according to the correct answer preference
         //Format to set the contents: t1.setText(Correct option choice);
-        t1.setText(TriviaArray[count][correctAnswers[count]]);
+        t1.setText(TriviaArray[questionNum][correctAnswers[questionNum]]);
 
         close = dialogView.findViewById(R.id.nav_button);
         close.setOnClickListener(new View.OnClickListener() {
@@ -226,17 +234,23 @@ public class Quiz2 extends AppCompatActivity {
 
     }
 
-    void ShuffleQuestions(int [] questionArray)
+    void ShuffleArray(int [] arr)
     {
         Random random = new Random();
-        for(int x = questionArray.length - 1; x > 0; x--)
+        for(int x = arr.length - 1; x > 0; x--)
         {
             int index = random.nextInt(x + 1);
-            int  temp = questionArray[index];
-            questionArray[index] = questionArray[x];
-            questionArray[x] = temp;
+            int  temp = arr[index];
+            arr[index] = arr[x];
+            arr[x] = temp;
         }
 
+    }
+
+    boolean CorrectChoice(int questionNum, String chosenAnswer)
+    {
+        String answer = TriviaArray[questionNum][correctAnswers[questionNum]];
+        return answer.equals(chosenAnswer);
     }
 
 }
