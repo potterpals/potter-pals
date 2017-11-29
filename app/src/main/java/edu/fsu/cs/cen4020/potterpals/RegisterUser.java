@@ -2,11 +2,13 @@ package edu.fsu.cs.cen4020.potterpals;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -171,10 +173,13 @@ public class RegisterUser extends AppCompatActivity {
                         values.put(MyContentProvider.COLUMN_NAME, nameStr.trim());
                         values.put(MyContentProvider.COLUMN_GENDER, genderStr.trim());
                         values.put(MyContentProvider.COLUMN_HOUSE, house.trim());
-                        Uri newUri;
+                        Uri newUri = getContentResolver().insert(MyContentProvider.CONTENT_URI, values);
 
-                        newUri = getContentResolver().insert(MyContentProvider.CONTENT_URI, values);
+                        //send email here and prompt the user to enter the verification code received in this email
+                        sendEmail();
+
                         Toast.makeText(context,"You have successfully registered!",Toast.LENGTH_LONG).show();
+
                     }
                 }
             }
@@ -207,17 +212,30 @@ public class RegisterUser extends AppCompatActivity {
      * This test email contains a code - the user will then enter this code to prove validity of email
      *
      * Code is entered in a dialog pop-up
-     *
-     * Code generation:
+     * Code is generated randomly using java.util.Random library
      */
-    public int getCode(){
+    public void getCode(){
         Random random = new Random();
         //generates a random number in [0,99]
         randomCode = random.nextInt(100);
-        return randomCode;
     }
 
+    /* This intent will open an application already existing on the device to send out an email
+     * All the fields such as sender, subject, and the body of the email will be filled out by this function
+      */
     public void sendEmail(){
+        Log.e("Register User: ","Send Email function is being activated");
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("message/rfc822");
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{email.toString()});
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Verification email - Potter Pals.");
+        intent.putExtra(Intent.EXTRA_TEXT, "The verification code is: " + randomCode);
+
+        try{
+            startActivity(Intent.createChooser(intent, "Send email: "));
+        }catch (android.content.ActivityNotFoundException e){
+            Toast.makeText(RegisterUser.this, "There are no email clients available", Toast.LENGTH_LONG ).show();
+        }
 
     }
 
