@@ -211,6 +211,19 @@
             android:layout_alignParentStart="true"
             android:layout_marginBottom="29dp" />
 
+        <Button
+            android:id="@+id/logout"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/leave"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="13dp"
+            android:layout_marginRight="13dp"
+            android:text="Logout"
+            android:textColor="@color/colorPrimaryDark" />
+
 
     </RelativeLayout>
 

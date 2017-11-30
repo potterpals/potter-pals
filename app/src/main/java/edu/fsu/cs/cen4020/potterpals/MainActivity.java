@@ -13,20 +13,23 @@ import static edu.fsu.cs.cen4020.potterpals.LoginUser.name;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView signIn= (TextView) findViewById(R.id.signInText);
-        TextView signupText = (TextView) findViewById(R.id.signUpText);
-        Button signUp = (Button) findViewById(R.id.signup);
-        Button login = (Button) findViewById(R.id.login);
-        TextView welcome = (TextView) findViewById(R.id.textView6);
-        TextView deleteUser = (TextView) findViewById(R.id.leave);
+        final TextView signIn= (TextView) findViewById(R.id.signInText);
+        final TextView signupText = (TextView) findViewById(R.id.signUpText);
+        final Button signUp = (Button) findViewById(R.id.signup);
+        final Button login = (Button) findViewById(R.id.login);
+        final TextView welcome = (TextView) findViewById(R.id.textView6);
+        final TextView deleteUser = (TextView) findViewById(R.id.leave);
+        final Button logout = (Button) findViewById(R.id.logout);
 
         welcome.setVisibility(View.INVISIBLE);
         deleteUser.setVisibility(View.INVISIBLE);
-
+        logout.setVisibility(View.INVISIBLE);
         Bundle bundle = getIntent().getExtras();
         if (bundle!=null)
         {
@@ -40,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 welcome.setText("Welcome " + username + "!!");
                 signupText.setVisibility(View.INVISIBLE);
                 deleteUser.setVisibility(View.VISIBLE);
+                logout.setVisibility(View.VISIBLE);
             }
         }
 
@@ -58,6 +62,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, LoginUser.class);
                 startActivity(intent);
+            }
+        });
+
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
+                welcome.setVisibility(View.INVISIBLE);
+                deleteUser.setVisibility(View.INVISIBLE);
+                logout.setVisibility(View.INVISIBLE);
             }
         });
 
