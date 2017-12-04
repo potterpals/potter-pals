@@ -2,6 +2,7 @@ package edu.fsu.cs.cen4020.potterpals;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.SingleLineTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -10,10 +11,12 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.util.Log;
 
 
 /**
  * Created by sap15e on 11/1/2017.
+
  */
 
 public class HouseQuiz extends AppCompatActivity
@@ -29,27 +32,80 @@ public class HouseQuiz extends AppCompatActivity
     int count = 0;
     int answerCount=1;
     String largest;
-//String [Question][Answers]. Should be [9][4] i.e. 10 by 5
+    private static final String TAG = "MyActivity";
+//String [Question][Answers]. Should be [9][5] i.e. 10 by 6
+    //default order is gryffindor, slytherin, ravenclaw, hufflepuff
+    //Added a field to indicate the order of the associated houses for the answers in the form GSRH (gryffindor, slytherin, etc.
     String[][] QuestionArray = {
-        {"You find a Remembrall on the ground but there is no one around to claim it. What do you do?", "Actively look for the owner to ensure no one else takes it", "Keep the Remembrall for yourself", "Report the Remembrall as lost and hand it over to one of the professors", "Play with the Remembrall for a while before trying to return it"},
+        {"You find a Remembrall on the ground but there is no one around to claim it. What do you do?",
+                "Play with the Remembrall for a while before trying to return it",
+                "Actively look for the owner to ensure no one else takes it",
+                "Report the Remembrall as lost and hand it over to one of the professors",
+                "Keep the Remembrall for yourself",
+                "HGRS"},
 
-        {"Which of these Hogwarts classes do you enjoy the most?", "Charms", "Defense against the Dark Arts", "History of Magic", "Potions"},
+        {"Which of these Hogwarts classes do you enjoy the most?",
+                "Defense against the Dark Arts",
+                "Charms",
+                "Potions",
+                "History of Magic",
+                "SGHR"},
 
-        {"Which magical creature do you feel the most drawn to?", "Phoenix", "Basilisk", "Hippogriff", "Centaur"},
+        {"Which magical creature do you feel the most drawn to?",
+                "Centaur",
+                "Hippogriff",
+                "Phoenix",
+                "Basilisk",
+                "HRGS"},
 
-        {"You hear some fellow classmates mischievously sneaking out of the dormitory late at night. What do you do?", "Follow them and try to convince them to go back to bed", "Join them and their antics", "Have an existential crisis because you want to report them but to do so would require you to leave the dorm which is breaking the rules", "Go back to sleep"},
+        {"You hear some fellow classmates mischievously sneaking out of the dormitory late at night. What do you do?",
+                "Follow them and try to convince them to go back to bed",
+                "Go back to sleep",
+                "Join them and their antics",
+                "Have an existential crisis because you want to report them but to do so would require you to leave the dorm which is breaking the rules",
+                "GHSR"},
 
-        {"You and group of friends are traveling down a path together. Which role sounds the most like you?", "Trying to convince the others to investigate the mysterious object you spotted in the nearby trees", "Playing pranks on the others", "Navigating using the map you bought to ensure you don't get lost", "Initiating games so no one gets bored along the way"},
+        {"You and group of friends are traveling down a path together. Which role sounds the most like you?",
+                "Navigating using the map you bought to ensure you don't get lost",
+                "Trying to convince the others to investigate the mysterious object you spotted in the nearby trees",
+                "Playing pranks on the others",
+                "Initiating games so no one gets bored along the way",
+                "RGSH"},
 
-        {"What do you think of muggles?", "Wizzards and muggles are equal", "Muggles suck","They live interesting lives that should be studied", "Make great friends just like everyone else"},
+        {"What do you think of muggles?",
+                "Muggles suck",
+                "Wizzards and muggles are equal",
+                "Make great friends just like everyone else",
+                "They live interesting lives that should be studied",
+                "SGHR"},
 
-        {"It's your first day at Hogwarts? What will you do?", "Explore the castle", "Bully mudbloods", "Begin studying for classes", "Try to make new friends"},
+        {"It's your first day at Hogwarts? What will you do?",
+                "Explore the castle",
+                "Bully mudbloods",
+                "Begin studying for classes",
+                "Try to make new friends",
+                "GSRH"},
 
-        {"What do you want people to remember you for?", "Legendary tales of your adventures", "Remarkable achievements you accomplished", "Your expansive knowledge", "Your good deeds"},
+        {"What do you want people to remember you for?",
+                "Your good deeds",
+                "Legendary tales of your adventures",
+                "Your expansive knowledge",
+                "Remarkable achievements you accomplished",
+                "HGRS"},
 
-        {"Amortentia is the most powerful love potion in the world and it smells different depending on what attracts a specific person. Which of the following scents would you find most attractive?", "Camp fire", "An exquisite perfume/cologne", "Old books", "Home cooked meals"},
+        {"Amortentia is the most powerful love potion in the world and it smells different depending on what attracts a specific person. Which of the following scents would you find most attractive?",
+                "Old books",
+                "An exquisite perfume/cologne",
+                "Camp fire",
+                "Home cooked meals",
+                "RSGH"},
 
-        {"What statement best defines you?", "'I can'", "'I will'", "'I know'", "'I feel'"}
+        {"What statement best defines you?",
+                "'I feel'",
+                "'I can'",
+                "'I know'",
+                "'I will'",
+                "HGRS"}
     };
 
     @Override
@@ -83,15 +139,20 @@ public class HouseQuiz extends AppCompatActivity
         sel4.setText(QuestionArray[count][answerCount+3]);
 
 
-
+        /*
+            When a radio button is selected, function 'incrementHouse' is passed the corresponding order
+            of the answers and info for which letter to check. I.e. if user picks selection 3 and order is RGHS,
+            increment house will look at the third letter, see that it's Hufflepuff, and increment
+            the counter for that house.
+            */
         sel1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                                             @Override
                                             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                                                 if (isChecked)
                                                 {
-                                                    //INCREMENT THE COUNT FOR GRYFINDOR;
-                                                    GryffCount++;
+                                                    incrementHouse(QuestionArray[count][5], 1); //5th index is always the order GSRH, etc.
                                                     next.setVisibility(View.VISIBLE);
+
                                                 }
                                             }
                                         }
@@ -102,8 +163,7 @@ public class HouseQuiz extends AppCompatActivity
                                             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                                                 if (isChecked)
                                                 {
-                                                    //INCREMENT THE COUNT FOR SLYTHERIN
-                                                    SlythCount++;
+                                                    incrementHouse(QuestionArray[count][5], 2);
                                                     next.setVisibility(View.VISIBLE);
                                                 }
                                             }
@@ -115,8 +175,7 @@ public class HouseQuiz extends AppCompatActivity
                                             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                                                 if (isChecked)
                                                 {
-                                                    //INCREMENT THE COUNT FOR RAVENCLAW
-                                                    RavenCount++;
+                                                    incrementHouse(QuestionArray[count][5], 3);
                                                     next.setVisibility(View.VISIBLE);
                                                 }
                                             }
@@ -127,8 +186,7 @@ public class HouseQuiz extends AppCompatActivity
                                             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                                                 if (isChecked)
                                                 {
-                                                    //INCREMENT THE COUNT FOR HUFFLEPUFF
-                                                    HuffCount++;
+                                                    incrementHouse(QuestionArray[count][5], 4);
                                                     next.setVisibility(View.VISIBLE);
                                                 }
                                             }
@@ -153,7 +211,7 @@ public class HouseQuiz extends AppCompatActivity
                 else
                 {
                     ++count;
-                    if (count < 10) {
+                    if (count < 9) {
                         //If question limit is not reached; display next question & corresponding answers
                         question.setText(QuestionArray[count][0]);
                         selections.clearCheck();
@@ -164,7 +222,7 @@ public class HouseQuiz extends AppCompatActivity
 
 
                     }
-                    else if (count == 10){
+                    else if (count == 9){
                         //"get results button becomes visible
                         if(GryffCount >= SlythCount && GryffCount >= HuffCount && GryffCount >= RavenCount)
                             largest="Gryffindor";
@@ -217,5 +275,18 @@ public class HouseQuiz extends AppCompatActivity
 
     }
 
+    public void incrementHouse(String order, int index){
+        //correcting index associated with radio buttons (1-4) to the indexes for the string 'order' (0-3)
+        index -= 1;
+        Log.d(TAG, "index=" + index);
+        if(order.charAt(index)=='G')
+            GryffCount++;
+        else if(order.charAt(index)=='S')
+            SlythCount++;
+        else if(order.charAt(index)=='R')
+            RavenCount++;
+        else
+            HuffCount++;
+    }
 
 }
