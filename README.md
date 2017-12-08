@@ -8,7 +8,7 @@ app >> src = Dir; contains the source code
 
 app >> src >> main >> res >> layout = Dir; XML files contained here 
         
-                ##### *All XML files contain the layouts and widgets for the UI *
+      *All XML files contain the layouts and widgets for the UI *
 
 app >> src >> main >> java/edu/fsu/cs/cen4020/potterpals = Dir; contains java files implementing all the UI 
 
